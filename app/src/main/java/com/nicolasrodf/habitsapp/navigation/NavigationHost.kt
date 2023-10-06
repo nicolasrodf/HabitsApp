@@ -5,6 +5,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.nicolasrodf.habitsapp.onboarding.OnboardingScreen
 
 @Composable
 fun NavigationHost(
@@ -15,7 +16,7 @@ fun NavigationHost(
         when(startDestination){
             NavigationRoute.OnBoarding -> {
                 composable(startDestination.route){
-                    Text(text = "Soy el OnBoarding")
+                    OnboardingScreen()
                 }
             }
         }
