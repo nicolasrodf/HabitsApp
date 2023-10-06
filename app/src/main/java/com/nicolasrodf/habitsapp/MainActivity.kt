@@ -10,6 +10,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.navigation.compose.rememberNavController
+import com.nicolasrodf.habitsapp.navigation.NavigationHost
+import com.nicolasrodf.habitsapp.navigation.NavigationRoute
 import com.nicolasrodf.habitsapp.ui.theme.HabitsAppTheme
 
 class MainActivity : ComponentActivity() {
@@ -22,7 +25,10 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    Greeting("Hola")
+                    val navController = rememberNavController()
+                    NavigationHost(
+                        navHostController = navController,
+                        startDestination = NavigationRoute.OnBoarding)
                 }
             }
         }
