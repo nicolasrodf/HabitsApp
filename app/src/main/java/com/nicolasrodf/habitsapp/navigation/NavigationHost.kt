@@ -16,7 +16,9 @@ fun NavigationHost(
         when(startDestination){
             NavigationRoute.OnBoarding -> {
                 composable(startDestination.route){
-                    OnboardingScreen()
+                    OnboardingScreen(onFinish = {
+                        println("Termino el Onboarding!")
+                    })
                 }
             }
         }
