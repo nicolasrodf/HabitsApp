@@ -12,9 +12,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.Button
-import androidx.compose.material.Text
-import androidx.compose.material.TextButton
+import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.rememberCoroutineScope
@@ -23,25 +22,30 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.SpanStyle
+import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.text.toUpperCase
+import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.HorizontalPagerIndicator
 import com.google.accompanist.pager.rememberPagerState
-import com.nicolasrodf.habitsapp.R
 import com.nicolasrodf.habitsapp.core.presentation.HabitButton
 import com.nicolasrodf.habitsapp.core.presentation.HabitTitle
 import com.nicolasrodf.habitsapp.onboarding.presentation.OnboardingPagerInformation
+import com.nicolasrodf.habitsapp.utils.Utils
 import kotlinx.coroutines.launch
 
+@Preview
 @OptIn(ExperimentalPagerApi::class)
 @Composable
 fun OnboardingPager(
-    pages: List<OnboardingPagerInformation>,
-    onFinish: () -> Unit,
+    pages: List<OnboardingPagerInformation> = Utils.onboardingPages,
+    onFinish: () -> Unit = {},
     modifier: Modifier = Modifier
 ) {
     val pagerState = rememberPagerState()
@@ -49,6 +53,7 @@ fun OnboardingPager(
     val coroutineScope = rememberCoroutineScope()
     Box(modifier = modifier.background(Color.White)) {
         HorizontalPager(count = pages.size, state = pagerState) { index ->
+
             val information = pages[index]
 
             Column(
@@ -66,10 +71,15 @@ fun OnboardingPager(
                 )
                 Spacer(modifier = Modifier.height(32.dp))
                 Text(
-                    text = information.subtitle.uppercase(),
+                    text = buildAnnotatedString {
+                        for (subtitle in information.subtitle){
+                            withStyle(style = SpanStyle(color = subtitle.color)) {
+                                append(subtitle.content)
+                            }
+                        }
+                    }.toUpperCase(),
                     style = MaterialTheme.typography.bodyLarge.copy(
-                        fontWeight = FontWeight.Bold,
-                        color = MaterialTheme.colorScheme.tertiary
+                        fontWeight = FontWeight.Bold
                     ),
                     textAlign = TextAlign.Center
                 )

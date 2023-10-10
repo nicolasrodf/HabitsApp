@@ -15,8 +15,7 @@ fun HabitTitle(
     Text(
         text = title.uppercase(),
         modifier = modifier,
-        style = MaterialTheme.typography.headlineSmall.copy(
-            fontWeight = FontWeight.Bold,
+        style = MaterialTheme.typography.headlineMedium.copy(
             color = MaterialTheme.colorScheme.tertiary
         ),
         textAlign = TextAlign.Center

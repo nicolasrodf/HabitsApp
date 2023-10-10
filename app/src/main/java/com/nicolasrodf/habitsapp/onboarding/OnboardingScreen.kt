@@ -1,9 +1,9 @@
 package com.nicolasrodf.habitsapp.onboarding
 
 import androidx.compose.runtime.Composable
-import androidx.compose.ui.Modifier
 import com.nicolasrodf.habitsapp.R
 import com.nicolasrodf.habitsapp.onboarding.presentation.OnboardingPagerInformation
+import com.nicolasrodf.habitsapp.utils.Utils
 
 @Composable
 fun OnboardingScreen(
@@ -11,23 +11,23 @@ fun OnboardingScreen(
 ) {
     val pages = listOf(
         OnboardingPagerInformation(
-            title = "Welcome to Monumental Habits",
-            subtitle = "We can help you to be a better version of yourself.",
+            title = "Welcome to \n Monumental Habits",
+            subtitle = Utils.subtitleData,
             image = R.drawable.onboarding1
         ),
         OnboardingPagerInformation(
-            title = "Create new habits easily",
-            subtitle = "We can help you to be a better version of yourself.",
+            title = "Create new \n habits easily",
+            subtitle = Utils.subtitleData,
             image = R.drawable.onboarding2
         ),
         OnboardingPagerInformation(
-            title = "Keep track of your progress",
-            subtitle = "We can help you to be a better version of yourself.",
+            title = "Keep track of your \n progress",
+            subtitle = Utils.subtitleData,
             image = R.drawable.onboarding3
         ),
         OnboardingPagerInformation(
-            title = "Join a supportive community",
-            subtitle = "We can help you to be a better version of yourself.",
+            title = "Join a supportive \n community",
+            subtitle = Utils.subtitleData,
             image = R.drawable.onboarding4
         )
     )
