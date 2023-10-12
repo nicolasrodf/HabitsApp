@@ -40,12 +40,11 @@ import com.nicolasrodf.habitsapp.onboarding.presentation.OnboardingPagerInformat
 import com.nicolasrodf.habitsapp.utils.Utils
 import kotlinx.coroutines.launch
 
-@Preview
 @OptIn(ExperimentalPagerApi::class)
 @Composable
 fun OnboardingPager(
-    pages: List<OnboardingPagerInformation> = Utils.onboardingPages,
-    onFinish: () -> Unit = {},
+    pages: List<OnboardingPagerInformation>,
+    onFinish: () -> Unit,
     modifier: Modifier = Modifier
 ) {
     val pagerState = rememberPagerState()
