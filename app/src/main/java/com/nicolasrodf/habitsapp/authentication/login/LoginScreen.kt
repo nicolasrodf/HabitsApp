@@ -12,32 +12,43 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.hilt.navigation.compose.hiltViewModel
 import com.nicolasrodf.habitsapp.R
 import com.nicolasrodf.habitsapp.authentication.login.components.LoginForm
+import com.nicolasrodf.habitsapp.authentication.presentation.login.LoginViewModel
 import com.nicolasrodf.habitsapp.core.presentation.HabitTitle
 
 @Composable
-fun LoginScreen() {
+fun LoginScreen(
+    viewModel: LoginViewModel = hiltViewModel()
+) {
+
+    val state = viewModel.state
+
     Box(modifier = Modifier.fillMaxSize()) {
         Image(
             painter = painterResource(id = R.drawable.bg_login),
             contentDescription = "background",
             contentScale = ContentScale.Crop,
-            modifier = Modifier.aspectRatio(1f).graphicsLayer(
-                scaleX = 1.27f,
-                scaleY = 1.27f
-            )
+            modifier = Modifier
+                .aspectRatio(1f)
+                .graphicsLayer(
+                    scaleX = 1.27f,
+                    scaleY = 1.27f
+                )
         )
         Spacer(
-            modifier = Modifier.fillMaxSize().background(
-                Brush.verticalGradient(
-                    colors = listOf(
-                        Color.Transparent,
-                        MaterialTheme.colorScheme.background,
-                        MaterialTheme.colorScheme.background
+            modifier = Modifier
+                .fillMaxSize()
+                .background(
+                    Brush.verticalGradient(
+                        colors = listOf(
+                            Color.Transparent,
+                            MaterialTheme.colorScheme.background,
+                            MaterialTheme.colorScheme.background
+                        )
                     )
                 )
-            )
         )
         Column(modifier = Modifier.fillMaxSize(), verticalArrangement = Arrangement.SpaceBetween) {
             Spacer(modifier = Modifier)
@@ -48,7 +59,9 @@ fun LoginScreen() {
             ) {
                 HabitTitle(title = "Welcome To \n Monumental Habits")
             }
-            LoginForm()
+            LoginForm(state, {
+                viewModel.onEvent(it)
+            })
         }
     }
 }
