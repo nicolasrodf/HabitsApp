@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     id("com.google.dagger.hilt.android")
+    id("com.google.gms.google-services")
     kotlin ("android")
     kotlin ("kapt")
 }
@@ -128,6 +129,9 @@ dependencies {
     val workmanager_version = "2.8.1"
     implementation ("androidx.work:work-runtime-ktx:$workmanager_version")
     implementation ("androidx.hilt:hilt-work:1.0.0")
+
+    //Firebase
+    implementation(platform("com.google.firebase:firebase-bom:32.3.1"))
 
     // Testing
     testImplementation ("junit:junit:4.13.2")

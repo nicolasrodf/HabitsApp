@@ -1,0 +1,106 @@
+{
+  "project_info": {
+    "project_number": "985804558226",
+    "firebase_url": "https://vercosearchapp.firebaseio.com",
+    "project_id": "vercosearchapp",
+    "storage_bucket": "vercosearchapp.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:985804558226:android:3345804a39540d3f",
+        "android_client_info": {
+          "package_name": "android.example.com.squawker"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "985804558226-aa422qie0trfngje17u330g4f8nrvekc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAw0j3FpTFAMajrwtqZv41cWjDAiyGV0i4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "985804558226-aa422qie0trfngje17u330g4f8nrvekc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:985804558226:android:8e657a9906e7d1f6",
+        "android_client_info": {
+          "package_name": "com.nicolasrf.multichoicequizapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "985804558226-7do5eifo5g89l50dd3sjah9v98mnfrau.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.nicolasrf.multichoicequizapp",
+            "certificate_hash": "e3df868be367d28e63a435f1ca0e4f5b0dac6866"
+          }
+        },
+        {
+          "client_id": "985804558226-aa422qie0trfngje17u330g4f8nrvekc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAw0j3FpTFAMajrwtqZv41cWjDAiyGV0i4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "985804558226-aa422qie0trfngje17u330g4f8nrvekc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:985804558226:android:18acc08c036b97a0567b4b",
+        "android_client_info": {
+          "package_name": "com.nicolasrodf.habitsapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "985804558226-aa422qie0trfngje17u330g4f8nrvekc.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAw0j3FpTFAMajrwtqZv41cWjDAiyGV0i4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "985804558226-aa422qie0trfngje17u330g4f8nrvekc.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

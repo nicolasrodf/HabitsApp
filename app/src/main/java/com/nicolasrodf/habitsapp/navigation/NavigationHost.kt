@@ -17,13 +17,26 @@ fun NavigationHost(
         composable(NavigationRoute.Onboarding.route) {
             OnboardingScreen(
                 onFinish = {
-                    navHostController.popBackStack() //Fixea el back del Login
+                    navHostController.popBackStack() //TODO.Fixea el back del Login
                     navHostController.navigate(NavigationRoute.Login.route)
                 }
             )
         }
         composable(NavigationRoute.Login.route) {
-            LoginScreen()
+            LoginScreen(onLogin = {
+                navHostController.popBackStack() //TODO.Fixea el back del Login
+                navHostController.navigate(NavigationRoute.Home.route)
+            }, onSignUp = {
+                navHostController.navigate(NavigationRoute.Signup.route)
+            })
+        }
+
+        composable(NavigationRoute.Signup.route) {
+            Text(text = "Esto es el signup")
+        }
+
+        composable(NavigationRoute.Home.route) {
+            Text(text = "Esta es la home")
         }
     }
 }
