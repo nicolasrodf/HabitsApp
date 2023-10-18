@@ -1,4 +1,4 @@
-package com.nicolasrodf.habitsapp.authentication.login
+package com.nicolasrodf.habitsapp.authentication.presentation.login
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -15,8 +15,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.nicolasrodf.habitsapp.R
-import com.nicolasrodf.habitsapp.authentication.login.components.LoginForm
-import com.nicolasrodf.habitsapp.authentication.presentation.login.LoginViewModel
+import com.nicolasrodf.habitsapp.authentication.presentation.login.components.LoginForm
 import com.nicolasrodf.habitsapp.core.presentation.HabitTitle
 
 @Composable

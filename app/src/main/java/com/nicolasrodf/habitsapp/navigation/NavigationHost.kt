@@ -5,7 +5,8 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.nicolasrodf.habitsapp.authentication.login.LoginScreen
+import com.nicolasrodf.habitsapp.authentication.presentation.login.LoginScreen
+import com.nicolasrodf.habitsapp.authentication.presentation.signup.SignupScreen
 import com.nicolasrodf.habitsapp.onboarding.OnboardingScreen
 
 @Composable
@@ -32,7 +33,7 @@ fun NavigationHost(
         }
 
         composable(NavigationRoute.Signup.route) {
-            Text(text = "Esto es el signup")
+            SignupScreen()
         }
 
         composable(NavigationRoute.Home.route) {

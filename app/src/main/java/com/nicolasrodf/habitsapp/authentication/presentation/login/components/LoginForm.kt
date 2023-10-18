@@ -1,4 +1,4 @@
-package com.nicolasrodf.habitsapp.authentication.login.components
+package com.nicolasrodf.habitsapp.authentication.presentation.login.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -85,7 +85,7 @@ fun LoginForm(
             ) {
                 onEvent(LoginEvent.Login)
             }
-            TextButton(onClick = { onEvent(LoginEvent.SignUp) }) {
+            TextButton(onClick = { /*TODO*/ }) {
                 Text(
                     text = "Forgot Password?",
                     color = MaterialTheme.colorScheme.tertiary,
@@ -93,7 +93,7 @@ fun LoginForm(
                 )
             }
 
-            TextButton(onClick = { /*TODO*/ }) {
+            TextButton(onClick = { onEvent(LoginEvent.SignUp)} ) {
                 Text(
                     text = buildAnnotatedString {
                         append("Don’t have an account? ")
