@@ -33,12 +33,6 @@ fun LoginScreen(
         }
     }
 
-    LaunchedEffect(state.signUp) {
-        if (state.signUp) {
-            onSignUp()
-        }
-    }
-
     Box(modifier = Modifier.fillMaxSize()) {
         Image(
             painter = painterResource(id = R.drawable.bg_login),
@@ -73,9 +67,7 @@ fun LoginScreen(
             ) {
                 HabitTitle(title = "Welcome To \n Monumental Habits")
             }
-            LoginForm(state, {
-                viewModel.onEvent(it)
-            })
+            LoginForm(state, viewModel::onEvent, onSignUp)
         }
     }
 }

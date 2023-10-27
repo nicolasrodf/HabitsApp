@@ -35,6 +35,7 @@ import com.nicolasrodf.habitsapp.core.presentation.HabitPasswordTextfield
 fun LoginForm(
     state: LoginState,
     onEvent: (LoginEvent) -> Unit,
+    onSignUp: () -> Unit,
     modifier: Modifier = Modifier
 ) {
 
@@ -93,7 +94,7 @@ fun LoginForm(
                 )
             }
 
-            TextButton(onClick = { onEvent(LoginEvent.SignUp)} ) {
+            TextButton(onClick = onSignUp ) {
                 Text(
                     text = buildAnnotatedString {
                         append("Don’t have an account? ")
@@ -114,5 +115,5 @@ fun LoginForm(
 @Preview
 @Composable
 fun LoginFormPreview() {
-    LoginForm(LoginState(), {})
+    LoginForm(LoginState(), {}, {})
 }
