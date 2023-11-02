@@ -29,7 +29,7 @@ class HomeRepositoryImpl : HomeRepository {
     }.toMutableList()
 
     override fun getAllHabitsForSelectedDate(date: ZonedDateTime): Flow<List<Habit>> {
-        return flowOf(mockHabits)
+        return flowOf(mockHabits.toList())
     }
 
     override suspend fun insertHabit(habit: Habit) {
