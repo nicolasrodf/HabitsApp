@@ -26,74 +26,6 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 
 @Composable
-fun HabitPasswordTextfield(
-    value: String,
-    onValueChange: (String) -> Unit,
-    contentDescription: String = "Enter password",
-    modifier: Modifier = Modifier,
-    placeholder: String = "Password",
-    errorMessage: String? = null,
-    leadingIcon: ImageVector? = Icons.Outlined.Lock,
-    isEnabled: Boolean = true,
-    keyboardOptions: KeyboardOptions = KeyboardOptions(
-        autoCorrect = false,
-        keyboardType = KeyboardType.Password,
-        imeAction = ImeAction.Done
-    ),
-    keyboardActions: KeyboardActions = KeyboardActions(),
-    backgroundColor: Color = MaterialTheme.colorScheme.background
-) {
-    HabitTextfield(
-        value = value,
-        onValueChange = onValueChange,
-        placeholder = placeholder,
-        modifier = modifier,
-        errorMessage = errorMessage,
-        leadingIcon = leadingIcon,
-        isPassword = true,
-        isEnabled = isEnabled,
-        keyboardOptions = keyboardOptions,
-        keyboardActions = keyboardActions,
-        backgroundColor = backgroundColor,
-        contentDescription = contentDescription
-    )
-}
-
-@Composable
-fun HabitEmailTextfield(
-    value: String,
-    onValueChange: (String) -> Unit,
-    contentDescription: String = "Enter email",
-    modifier: Modifier = Modifier,
-    placeholder: String = "Email",
-    errorMessage: String? = null,
-    leadingIcon: ImageVector? = Icons.Outlined.Email,
-    isEnabled: Boolean = true,
-    keyboardOptions: KeyboardOptions = KeyboardOptions(
-        autoCorrect = false,
-        keyboardType = KeyboardType.Email,
-        imeAction = ImeAction.Next
-    ),
-    keyboardActions: KeyboardActions = KeyboardActions(),
-    backgroundColor: Color = MaterialTheme.colorScheme.background
-) {
-    HabitTextfield(
-        value = value,
-        onValueChange = onValueChange,
-        placeholder = placeholder,
-        modifier = modifier,
-        errorMessage = errorMessage,
-        leadingIcon = leadingIcon,
-        isEnabled = isEnabled,
-        keyboardOptions = keyboardOptions,
-        keyboardActions = keyboardActions,
-        backgroundColor = backgroundColor,
-        contentDescription = contentDescription
-    )
-}
-
-@OptIn(ExperimentalMaterial3Api::class)
-@Composable
 fun HabitTextfield(
     value: String,
     onValueChange: (String) -> Unit,
@@ -165,6 +97,72 @@ fun HabitTextfield(
             Text(text = errorMessage, color = MaterialTheme.colorScheme.error)
         }
     }
+}
+@Composable
+fun HabitPasswordTextfield(
+    value: String,
+    onValueChange: (String) -> Unit,
+    contentDescription: String = "Enter password",
+    modifier: Modifier = Modifier,
+    placeholder: String = "Password",
+    errorMessage: String? = null,
+    leadingIcon: ImageVector? = Icons.Outlined.Lock,
+    isEnabled: Boolean = true,
+    keyboardOptions: KeyboardOptions = KeyboardOptions(
+        autoCorrect = false,
+        keyboardType = KeyboardType.Password,
+        imeAction = ImeAction.Done
+    ),
+    keyboardActions: KeyboardActions = KeyboardActions(),
+    backgroundColor: Color = MaterialTheme.colorScheme.background
+) {
+    HabitTextfield(
+        value = value,
+        onValueChange = onValueChange,
+        placeholder = placeholder,
+        modifier = modifier,
+        errorMessage = errorMessage,
+        leadingIcon = leadingIcon,
+        isPassword = true,
+        isEnabled = isEnabled,
+        keyboardOptions = keyboardOptions,
+        keyboardActions = keyboardActions,
+        backgroundColor = backgroundColor,
+        contentDescription = contentDescription
+    )
+}
+
+@Composable
+fun HabitEmailTextfield(
+    value: String,
+    onValueChange: (String) -> Unit,
+    contentDescription: String = "Enter email",
+    modifier: Modifier = Modifier,
+    placeholder: String = "Email",
+    errorMessage: String? = null,
+    leadingIcon: ImageVector? = Icons.Outlined.Email,
+    isEnabled: Boolean = true,
+    keyboardOptions: KeyboardOptions = KeyboardOptions(
+        autoCorrect = false,
+        keyboardType = KeyboardType.Email,
+        imeAction = ImeAction.Next
+    ),
+    keyboardActions: KeyboardActions = KeyboardActions(),
+    backgroundColor: Color = MaterialTheme.colorScheme.background
+) {
+    HabitTextfield(
+        value = value,
+        onValueChange = onValueChange,
+        placeholder = placeholder,
+        modifier = modifier,
+        errorMessage = errorMessage,
+        leadingIcon = leadingIcon,
+        isEnabled = isEnabled,
+        keyboardOptions = keyboardOptions,
+        keyboardActions = keyboardActions,
+        backgroundColor = backgroundColor,
+        contentDescription = contentDescription
+    )
 }
 
 @Preview
