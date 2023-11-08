@@ -28,13 +28,12 @@ class HomeViewModel @Inject constructor(
                 state = state.copy(
                     selectedDate = event.date
                 )
-               // getHabits()
+                getHabits()
             }
             is HomeEvent.CompleteHabit -> {
                 viewModelScope.launch {
                     homeUseCases.completeHabitUseCase(event.habit, state.selectedDate)
                 }
-                getHabits()
             }
         }
     }

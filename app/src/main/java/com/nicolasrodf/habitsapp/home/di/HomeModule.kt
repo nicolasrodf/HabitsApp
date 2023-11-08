@@ -1,5 +1,10 @@
 package com.nicolasrodf.habitsapp.home.di
 
+import android.content.Context
+import androidx.room.Room
+import com.nicolasrodf.habitsapp.home.data.local.HomeDao
+import com.nicolasrodf.habitsapp.home.data.local.HomeDatabase
+import com.nicolasrodf.habitsapp.home.data.local.typeconverter.HomeTypeConverter
 import com.nicolasrodf.habitsapp.home.data.repository.HomeRepositoryImpl
 import com.nicolasrodf.habitsapp.home.domain.detail.usecase.DetailUseCases
 import com.nicolasrodf.habitsapp.home.domain.detail.usecase.GetHabitByIdUseCase
@@ -11,6 +16,7 @@ import com.nicolasrodf.habitsapp.home.domain.repository.HomeRepository
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
+import dagger.hilt.android.qualifiers.ApplicationContext
 import dagger.hilt.components.SingletonComponent
 import javax.inject.Singleton
 
@@ -37,7 +43,17 @@ object HomeModule {
 
     @Singleton
     @Provides
-    fun provideHomeRepository(): HomeRepository {
-        return HomeRepositoryImpl()
+    fun provideHabitDao(@ApplicationContext context: Context): HomeDao {
+        return Room.databaseBuilder(
+            context,
+            HomeDatabase::class.java,
+            "habits_db"
+        ).addTypeConverter(HomeTypeConverter()).build().dao
+    }
+
+    @Singleton
+    @Provides
+    fun provideHomeRepository(dao: HomeDao): HomeRepository {
+        return HomeRepositoryImpl(dao)
     }
 }

@@ -6,10 +6,10 @@ import java.time.LocalTime
 import java.time.ZonedDateTime
 
 data class Habit(
-    val id: String,
-    val name: String,
-    val frequency: List<DayOfWeek>,
-    val completedDates: List<LocalDate>,
-    val reminder: LocalTime,
-    val startDate: ZonedDateTime
+    val id: String, //autogenerado
+    val name: String, //editable
+    val frequency: List<DayOfWeek>, //editable
+    val completedDates: List<LocalDate>, //editable en el Home
+    val reminder: LocalTime,//editable
+    val startDate: ZonedDateTime //no editable
 )
