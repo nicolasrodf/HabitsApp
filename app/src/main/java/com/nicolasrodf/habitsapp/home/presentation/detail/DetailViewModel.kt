@@ -62,10 +62,10 @@ class DetailViewModel @Inject constructor(
                         startDate = state.startDate
                     )
                     detailUseCases.insertHabitUseCase(habit)
+                    state = state.copy(
+                        isSaved = true
+                    )
                 }
-                state = state.copy(
-                    isSaved = true
-                )
             }
             is DetailEvent.NameChange -> {
                 state = state.copy(

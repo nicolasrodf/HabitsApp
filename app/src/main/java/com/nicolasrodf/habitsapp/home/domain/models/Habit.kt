@@ -11,5 +11,5 @@ data class Habit(
     val frequency: List<DayOfWeek>, //editable
     val completedDates: List<LocalDate>, //editable en el Home
     val reminder: LocalTime,//editable
-    val startDate: ZonedDateTime //no editable
+    val startDate: ZonedDateTime //no editable, el dia en que es creado el Habito
 )
