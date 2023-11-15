@@ -12,11 +12,8 @@ interface HomeDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertHabit(habitEntity: HabitEntity)
 
-    @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertHabits(habitEntitys: List<HabitEntity>)
-
     @Query("SELECT * FROM HabitEntity WHERE id = :id")
-    fun getHabitById(id: String): HabitEntity
+    suspend fun getHabitById(id: String): HabitEntity
 
     //Recuperar los habitos desde el startDate hasta el selectedDate
     @Query("SELECT * FROM HabitEntity WHERE startDate <= :selectedDate")

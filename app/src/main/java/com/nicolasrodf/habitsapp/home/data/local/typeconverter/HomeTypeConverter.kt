@@ -1,6 +1,5 @@
 package com.nicolasrodf.habitsapp.home.data.local.typeconverter
 
-import android.util.Log
 import androidx.room.ProvidedTypeConverter
 import androidx.room.TypeConverter
 import androidx.room.util.joinIntoString
@@ -34,7 +33,6 @@ class HomeTypeConverter() {
             try {
                 item.toLong()
             } catch (ex: NumberFormatException) {
-                Log.e("ROOM", "Malformed integer list", ex)
                 null
             }
         }

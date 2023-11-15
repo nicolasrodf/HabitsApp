@@ -2,11 +2,13 @@ package com.nicolasrodf.habitsapp.home.di
 
 import android.content.Context
 import androidx.room.Room
+import com.nicolasrodf.habitsapp.home.data.alarm.AlarmHandlerImpl
 import com.nicolasrodf.habitsapp.home.data.local.HomeDao
 import com.nicolasrodf.habitsapp.home.data.local.HomeDatabase
 import com.nicolasrodf.habitsapp.home.data.local.typeconverter.HomeTypeConverter
 import com.nicolasrodf.habitsapp.home.data.remote.HomeApi
 import com.nicolasrodf.habitsapp.home.data.repository.HomeRepositoryImpl
+import com.nicolasrodf.habitsapp.home.domain.alarm.AlarmHandler
 import com.nicolasrodf.habitsapp.home.domain.detail.usecase.DetailUseCases
 import com.nicolasrodf.habitsapp.home.domain.detail.usecase.GetHabitByIdUseCase
 import com.nicolasrodf.habitsapp.home.domain.detail.usecase.InsertHabitUseCase
@@ -76,7 +78,17 @@ object HomeModule {
 
     @Singleton
     @Provides
-    fun provideHomeRepository(dao: HomeDao, api: HomeApi): HomeRepository {
-        return HomeRepositoryImpl(dao, api)
+    fun provideHomeRepository(
+        dao: HomeDao,
+        api: HomeApi,
+        alarmHandler: AlarmHandler
+    ): HomeRepository {
+        return HomeRepositoryImpl(dao, api, alarmHandler)
+    }
+
+    @Singleton
+    @Provides
+    fun provideAlarmHandler(@ApplicationContext context: Context): AlarmHandler {
+        return AlarmHandlerImpl(context)
     }
 }
