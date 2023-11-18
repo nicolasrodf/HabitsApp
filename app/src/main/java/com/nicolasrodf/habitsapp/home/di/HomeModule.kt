@@ -2,6 +2,7 @@ package com.nicolasrodf.habitsapp.home.di
 
 import android.content.Context
 import androidx.room.Room
+import androidx.work.WorkManager
 import com.nicolasrodf.habitsapp.home.data.alarm.AlarmHandlerImpl
 import com.nicolasrodf.habitsapp.home.data.local.HomeDao
 import com.nicolasrodf.habitsapp.home.data.local.HomeDatabase
@@ -15,6 +16,7 @@ import com.nicolasrodf.habitsapp.home.domain.detail.usecase.InsertHabitUseCase
 import com.nicolasrodf.habitsapp.home.domain.home.usecase.CompleteHabitUseCase
 import com.nicolasrodf.habitsapp.home.domain.home.usecase.GetHabitsForDateUseCase
 import com.nicolasrodf.habitsapp.home.domain.home.usecase.HomeUseCases
+import com.nicolasrodf.habitsapp.home.domain.home.usecase.SyncHabitUseCase
 import com.nicolasrodf.habitsapp.home.domain.repository.HomeRepository
 import dagger.Module
 import dagger.Provides
@@ -35,7 +37,8 @@ object HomeModule {
     fun provideHomeUseCases(repository: HomeRepository): HomeUseCases {
         return HomeUseCases(
             completeHabitUseCase = CompleteHabitUseCase(repository),
-            getHabitsForDateUseCase = GetHabitsForDateUseCase(repository)
+            getHabitsForDateUseCase = GetHabitsForDateUseCase(repository),
+            syncHabitUseCase = SyncHabitUseCase(repository)
         )
     }
 
@@ -81,14 +84,21 @@ object HomeModule {
     fun provideHomeRepository(
         dao: HomeDao,
         api: HomeApi,
-        alarmHandler: AlarmHandler
+        alarmHandler: AlarmHandler,
+        workManager: WorkManager
     ): HomeRepository {
-        return HomeRepositoryImpl(dao, api, alarmHandler)
+        return HomeRepositoryImpl(dao, api, alarmHandler, workManager)
     }
 
     @Singleton
     @Provides
     fun provideAlarmHandler(@ApplicationContext context: Context): AlarmHandler {
         return AlarmHandlerImpl(context)
+    }
+
+    @Singleton
+    @Provides
+    fun provideWorkManager(@ApplicationContext context: Context): WorkManager {
+        return WorkManager.getInstance(context)
     }
 }

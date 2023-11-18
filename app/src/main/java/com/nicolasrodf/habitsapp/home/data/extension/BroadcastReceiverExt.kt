@@ -11,6 +11,7 @@ import kotlin.coroutines.EmptyCoroutineContext
 * Da soporte de corutinas para el BroadcastReceiver
 * para poder usar el repositorio que tiene metodos suspend
 * */
+//Referencia: https://stackoverflow.com/questions/74111692/run-coroutine-functions-on-broadcast-receiver
 fun BroadcastReceiver.goAsync(
     context: CoroutineContext = EmptyCoroutineContext,
     block: suspend CoroutineScope.() -> Unit

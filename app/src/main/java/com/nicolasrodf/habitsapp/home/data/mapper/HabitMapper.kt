@@ -4,6 +4,7 @@ import com.nicolasrodf.habitsapp.home.data.extension.toStartOfDateTimestamp
 import com.nicolasrodf.habitsapp.home.data.extension.toTimeStamp
 import com.nicolasrodf.habitsapp.home.data.extension.toZonedDateTime
 import com.nicolasrodf.habitsapp.home.data.local.entity.HabitEntity
+import com.nicolasrodf.habitsapp.home.data.local.entity.HabitSyncEntity
 import com.nicolasrodf.habitsapp.home.data.remote.dto.HabitDto
 import com.nicolasrodf.habitsapp.home.data.remote.dto.HabitResponse
 import com.nicolasrodf.habitsapp.home.domain.models.Habit
@@ -56,4 +57,8 @@ fun Habit.toDto(): HabitResponse {
         startDate = this.startDate.toStartOfDateTimestamp()
     )
     return mapOf(id to dto)
+}
+
+fun Habit.toSyncEntity(): HabitSyncEntity {
+    return HabitSyncEntity(id)
 }
