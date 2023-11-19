@@ -7,6 +7,7 @@ import com.nicolasrodf.habitsapp.authentication.domain.repository.Authentication
 import com.nicolasrodf.habitsapp.authentication.domain.usecase.GetUserIdUseCase
 import com.nicolasrodf.habitsapp.authentication.domain.usecase.LoginUseCases
 import com.nicolasrodf.habitsapp.authentication.domain.usecase.LoginWithEmailUseCase
+import com.nicolasrodf.habitsapp.authentication.domain.usecase.LogoutUseCase
 import com.nicolasrodf.habitsapp.authentication.domain.usecase.SignupUseCases
 import com.nicolasrodf.habitsapp.authentication.domain.usecase.SignupWithEmailUseCase
 import com.nicolasrodf.habitsapp.authentication.domain.usecase.ValidateEmailUseCase
@@ -62,5 +63,11 @@ object AuthenticationModule {
     @Singleton
     fun provideGetUserIdUseCase(repository: AuthenticationRepository): GetUserIdUseCase {
         return GetUserIdUseCase(repository)
+    }
+
+    @Provides
+    @Singleton
+    fun provideLogoutUseCase(repository: AuthenticationRepository): LogoutUseCase {
+        return LogoutUseCase(repository)
     }
 }

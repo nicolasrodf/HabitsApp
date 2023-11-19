@@ -11,11 +11,13 @@ import com.nicolasrodf.habitsapp.authentication.presentation.signup.SignupScreen
 import com.nicolasrodf.habitsapp.home.presentation.detail.DetailScreen
 import com.nicolasrodf.habitsapp.home.presentation.home.HomeScreen
 import com.nicolasrodf.habitsapp.onboarding.OnboardingScreen
+import com.nicolasrodf.habitsapp.settings.presentation.SettingsScreen
 
 @Composable
 fun NavigationHost(
     navHostController: NavHostController,
-    startDestination: NavigationRoute
+    startDestination: NavigationRoute,
+    logout: () -> Unit
 ) {
     NavHost(navController = navHostController, startDestination = startDestination.route){
         composable(NavigationRoute.Onboarding.route) {
@@ -72,6 +74,22 @@ fun NavigationHost(
             }, onSave = {
                 navHostController.popBackStack()
             })
+        }
+
+        composable(NavigationRoute.Settings.route) {
+            SettingsScreen(
+                onBack = {
+                    navHostController.popBackStack()
+                },
+                onLogout = {
+                    logout()
+                    navHostController.navigate(NavigationRoute.Login.route) {
+                        popUpTo(navHostController.graph.id) {
+                            inclusive = true
+                        }
+                    }
+                }
+            )
         }
     }
 }
