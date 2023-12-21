@@ -18,7 +18,7 @@ interface HomeDao {
     suspend fun getHabitById(id: String): HabitEntity
 
     //Recuperar los habitos desde el startDate hasta el selectedDate
-    @Query("SELECT * FROM HabitEntity WHERE startDate <= :selectedDate")
+    @Query("SELECT * FROM HabitEntity WHERE startDate <= :selectedDate ORDER BY id ASC")
     fun getAllHabitsForSelectedDate(selectedDate: Long): Flow<List<HabitEntity>>
 
     @Query("SELECT * FROM HabitEntity")
