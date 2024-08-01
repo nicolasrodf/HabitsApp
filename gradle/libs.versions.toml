@@ -25,8 +25,13 @@ turbineVersion = "0.7.0"
 workmanagerVersion = "2.8.0"
 firebaseBom = "31.2.2"
 minSdk = "24"
-compileSdk = "33"
-targetSdk = "33"
+compileSdk = "34"
+targetSdk = "34"
+jetbrainsKotlinJvmVersion = "1.8.10"
+agpVersion = "8.5.1"
+kotlinVersion = "1.8.10"
+appcompatVersion = "1.6.1"
+materialVersion = "1.10.0"
 
 [libraries]
 accompanist-pager-indicators = { module = "com.google.accompanist:accompanist-pager-indicators", version.ref = "accompanistVersion" }
@@ -71,5 +76,10 @@ ui = { module = "androidx.compose.ui:ui", version.ref = "composeVersion" }
 firebase-bom = { module = "com.google.firebase:firebase-bom", version.ref = "firebaseBom" }
 firebase-auth-ktx = { group = "com.google.firebase", name = "firebase-auth-ktx"}
 firebase-analytics-ktx = { group = "com.google.firebase", name = "firebase-analytics-ktx"}
+androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompatVersion" }
+material = { group = "com.google.android.material", name = "material", version.ref = "materialVersion" }
 
 [plugins]
+jetbrains-kotlin-jvm = { id = "org.jetbrains.kotlin.jvm", version.ref = "jetbrainsKotlinJvmVersion" }
+android-library = { id = "com.android.library", version.ref = "agpVersion" }
+jetbrains-kotlin-android = { id = "org.jetbrains.kotlin.android", version.ref = "kotlinVersion" }
