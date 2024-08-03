@@ -11,7 +11,7 @@ import com.nicolasrodf.habitsapp.authentication.presentation.signup.SignupScreen
 import com.nicolasrodf.habitsapp.home.presentation.detail.DetailScreen
 import com.nicolasrodf.habitsapp.home.presentation.home.HomeScreen
 import com.nicolasrodf.habitsapp.onboarding.OnboardingScreen
-import com.nicolasrodf.habitsapp.settings.presentation.SettingsScreen
+import com.nicolasrf.settings_presentation.SettingsScreen
 
 @Composable
 fun NavigationHost(
@@ -77,7 +77,7 @@ fun NavigationHost(
         }
 
         composable(NavigationRoute.Settings.route) {
-            SettingsScreen(
+            com.nicolasrf.settings_presentation.SettingsScreen(
                 onBack = {
                     navHostController.popBackStack()
                 },

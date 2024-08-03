@@ -1,4 +1,4 @@
-package com.nicolasrodf.habitsapp.settings.presentation.components
+package com.nicolasrf.settings_presentation.components
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable

@@ -1,4 +1,4 @@
-package com.nicolasrodf.habitsapp.settings.presentation
+package com.nicolasrf.settings_presentation
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -21,7 +21,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.nicolasrodf.habitsapp.settings.presentation.components.SettingsItem
+import com.nicolasrf.settings_presentation.components.SettingsItem
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
