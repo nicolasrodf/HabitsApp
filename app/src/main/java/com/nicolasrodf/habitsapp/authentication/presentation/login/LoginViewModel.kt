@@ -8,7 +8,7 @@ import androidx.lifecycle.viewModelScope
 import com.nicolasrodf.habitsapp.authentication.domain.usecase.LoginUseCases
 import com.nicolasrodf.habitsapp.authentication.presentation.util.PasswordErrorParser
 import com.nicolasrodf.habitsapp.authentication.toReadableError
-import com.nicolasrodf.habitsapp.core.di.IoDispatcher
+import com.nicolasrf.core_data.di.IoDispatcher
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineDispatcher
 import kotlinx.coroutines.launch
@@ -17,7 +17,7 @@ import javax.inject.Inject
 @HiltViewModel
 class LoginViewModel @Inject constructor(
     private val loginUseCases: LoginUseCases,
-    @IoDispatcher private val dispatcher: CoroutineDispatcher
+    @com.nicolasrf.core_data.di.IoDispatcher private val dispatcher: CoroutineDispatcher
 ) : ViewModel() {
     var state by mutableStateOf(LoginState())
         private set

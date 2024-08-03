@@ -19,7 +19,7 @@ import com.maxkeppeker.sheets.core.models.base.rememberSheetState
 import com.maxkeppeler.sheets.clock.ClockDialog
 import com.maxkeppeler.sheets.clock.models.ClockConfig
 import com.maxkeppeler.sheets.clock.models.ClockSelection
-import com.nicolasrodf.habitsapp.core.presentation.HabitTextfield
+import com.nicolasrf.core_presentation.HabitTextfield
 import com.nicolasrodf.habitsapp.home.presentation.detail.components.DetailFrequency
 import com.nicolasrodf.habitsapp.home.presentation.detail.components.DetailReminder
 import java.time.LocalTime

@@ -16,11 +16,9 @@ import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
+import com.nicolasrf.core_presentation.HabitButton
 import com.nicolasrodf.habitsapp.authentication.presentation.signup.SignupEvent
 import com.nicolasrodf.habitsapp.authentication.presentation.signup.SignupState
-import com.nicolasrodf.habitsapp.core.presentation.HabitButton
-import com.nicolasrodf.habitsapp.core.presentation.HabitEmailTextfield
-import com.nicolasrodf.habitsapp.core.presentation.HabitPasswordTextfield
 
 @Composable
 fun SignupForm(
@@ -31,7 +29,7 @@ fun SignupForm(
     val focusManager = LocalFocusManager.current
 
     Column(modifier = modifier, horizontalAlignment = Alignment.CenterHorizontally) {
-        HabitEmailTextfield(
+        com.nicolasrf.core_presentation.HabitEmailTextfield(
             value = state.email,
             onValueChange = { onEvent(SignupEvent.EmailChange(it)) },
             modifier = Modifier.fillMaxWidth().padding(bottom = 6.dp).padding(horizontal = 20.dp),
@@ -42,7 +40,7 @@ fun SignupForm(
             isEnabled = !state.isLoading,
             backgroundColor = Color.White
         )
-        HabitPasswordTextfield(
+        com.nicolasrf.core_presentation.HabitPasswordTextfield(
             value = state.password,
             onValueChange = { onEvent(SignupEvent.PasswordChange(it)) },
             modifier = Modifier.fillMaxWidth().padding(bottom = 6.dp).padding(horizontal = 20.dp),

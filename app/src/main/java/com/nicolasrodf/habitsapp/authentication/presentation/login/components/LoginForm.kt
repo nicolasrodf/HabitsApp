@@ -27,9 +27,9 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.nicolasrodf.habitsapp.authentication.presentation.login.LoginEvent
 import com.nicolasrodf.habitsapp.authentication.presentation.login.LoginState
-import com.nicolasrodf.habitsapp.core.presentation.HabitButton
-import com.nicolasrodf.habitsapp.core.presentation.HabitEmailTextfield
-import com.nicolasrodf.habitsapp.core.presentation.HabitPasswordTextfield
+import com.nicolasrf.core_presentation.HabitButton
+import com.nicolasrf.core_presentation.HabitEmailTextfield
+import com.nicolasrf.core_presentation.HabitPasswordTextfield
 
 @Composable
 fun LoginForm(

@@ -1,4 +1,4 @@
-package com.nicolasrodf.habitsapp.core.di
+package com.nicolasrf.core_data.di
 
 import dagger.Module
 import dagger.Provides

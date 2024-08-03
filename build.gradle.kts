@@ -2,7 +2,7 @@
 plugins {
     id("com.android.application") version "8.5.1" apply false
     id("org.jetbrains.kotlin.android") version "1.8.10" apply false
-    id("com.google.dagger.hilt.android") version "2.46.1" apply false
+    id("com.google.dagger.hilt.android") version "2.49" apply false
     id("com.google.gms.google-services") version "4.4.0" apply false
     alias(libs.plugins.jetbrains.kotlin.jvm) apply false
     alias(libs.plugins.android.library) apply false

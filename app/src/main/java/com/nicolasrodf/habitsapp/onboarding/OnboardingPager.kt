@@ -28,16 +28,14 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.toUpperCase
 import androidx.compose.ui.text.withStyle
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.google.accompanist.pager.ExperimentalPagerApi
 import com.google.accompanist.pager.HorizontalPager
 import com.google.accompanist.pager.HorizontalPagerIndicator
 import com.google.accompanist.pager.rememberPagerState
-import com.nicolasrodf.habitsapp.core.presentation.HabitButton
-import com.nicolasrodf.habitsapp.core.presentation.HabitTitle
+import com.nicolasrf.core_presentation.HabitButton
+import com.nicolasrf.core_presentation.HabitTitle
 import com.nicolasrodf.habitsapp.onboarding.presentation.OnboardingPagerInformation
-import com.nicolasrodf.habitsapp.utils.Utils
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalPagerApi::class)
@@ -91,7 +89,10 @@ fun OnboardingPager(
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
             if (pagerState.currentPage == pages.lastIndex) {
-                HabitButton(text = "Get Started", modifier = Modifier.fillMaxWidth()) {
+                HabitButton(
+                    text = "Get Started",
+                    modifier = Modifier.fillMaxWidth()
+                ) {
                     onFinish()
                 }
             } else {

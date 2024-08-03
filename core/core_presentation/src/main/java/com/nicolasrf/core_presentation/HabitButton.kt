@@ -1,4 +1,4 @@
-package com.nicolasrodf.habitsapp.core.presentation
+package com.nicolasrf.core_presentation
 
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape

@@ -7,7 +7,7 @@ import androidx.compose.runtime.*
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import com.google.accompanist.permissions.*
-import com.nicolasrodf.habitsapp.core.presentation.HabitButton
+import com.nicolasrf.core_presentation.HabitButton
 
 @OptIn(ExperimentalPermissionsApi::class)
 @Composable
@@ -26,7 +26,10 @@ fun HomeAskPermission(
             onDismissRequest = { },
             modifier = modifier,
             confirmButton = {
-                HabitButton(text = "Accept", modifier = Modifier.fillMaxWidth()) {
+                HabitButton(
+                    text = "Accept",
+                    modifier = Modifier.fillMaxWidth()
+                ) {
                     permissionState.launchPermissionRequest()
                 }
             },

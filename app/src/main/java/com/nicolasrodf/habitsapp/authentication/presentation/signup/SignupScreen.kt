@@ -16,7 +16,7 @@ import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.nicolasrodf.habitsapp.R
 import com.nicolasrodf.habitsapp.authentication.presentation.signup.components.SignupForm
-import com.nicolasrodf.habitsapp.core.presentation.HabitTitle
+import com.nicolasrf.core_presentation.HabitTitle
 
 @Composable
 fun SignupScreen(
