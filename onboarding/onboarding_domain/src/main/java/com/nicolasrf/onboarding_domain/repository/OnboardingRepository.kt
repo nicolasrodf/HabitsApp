@@ -1,4 +1,4 @@
-package com.nicolasrodf.habitsapp.onboarding.domain.repository
+package com.nicolasrf.onboarding_domain.repository
 
 interface OnboardingRepository {
     fun hasSeenOnboarding(): Boolean

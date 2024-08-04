@@ -1,11 +1,11 @@
-package com.nicolasrodf.habitsapp.onboarding.data
+package com.nicolasrf.onboarding_data.repository
 
 import android.content.SharedPreferences
-import com.nicolasrodf.habitsapp.onboarding.domain.repository.OnboardingRepository
+import com.nicolasrf.onboarding_domain.repository.OnboardingRepository
 
 class OnboardingRepositoryImpl(
     private val sharedPreferences: SharedPreferences
-) : OnboardingRepository {
+) : com.nicolasrf.onboarding_domain.repository.OnboardingRepository {
 
     companion object {
         private const val HAS_SEEN_ONBOARDING = "has_seen_onboarding"

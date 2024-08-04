@@ -1,6 +1,6 @@
-package com.nicolasrodf.habitsapp.onboarding.domain.usecase
+package com.nicolasrf.onboarding_domain.usecase
 
-import com.nicolasrodf.habitsapp.onboarding.domain.repository.OnboardingRepository
+import com.nicolasrf.onboarding_domain.repository.OnboardingRepository
 
 class HasSeenOnboardingUseCase(
     private val repository: OnboardingRepository

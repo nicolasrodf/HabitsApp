@@ -58,6 +58,9 @@ dependencies {
     implementation(project(":core:core_presentation"))
     implementation(project(":core:core_data"))
     implementation(project(":settings:settings_presentation"))
+    implementation(project(":onboarding:onboarding_presentation"))
+    implementation(project(":onboarding:onboarding_data"))
+    implementation(project(":onboarding:onboarding_domain"))
 
 
     //Get day of week api 25 or lower
@@ -90,10 +93,6 @@ dependencies {
 
     // Coil
     implementation(libs.coil.compose)
-
-    // Pager
-    implementation(libs.accompanist.pager)
-    implementation(libs.accompanist.pager.indicators)
 
     // Permissions
     implementation(libs.accompanist.permissions)

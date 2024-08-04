@@ -1,12 +1,11 @@
-package com.nicolasrodf.habitsapp.onboarding
+package com.nicolasrf.onboarding_presentation.components
 
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.nicolasrodf.habitsapp.R
-import com.nicolasrodf.habitsapp.onboarding.presentation.OnboardingPagerInformation
-import com.nicolasrodf.habitsapp.onboarding.presentation.OnboardingViewModel
-import com.nicolasrodf.habitsapp.utils.Utils
+import com.nicolasrf.onboarding_presentation.OnboardingPagerInformation
+import com.nicolasrf.onboarding_presentation.OnboardingViewModel
+import com.nicolasrf.onboarding_presentation.R
 
 @Composable
 fun OnboardingScreen(

@@ -7,7 +7,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.nicolasrodf.habitsapp.authentication.domain.usecase.GetUserIdUseCase
 import com.nicolasrodf.habitsapp.authentication.domain.usecase.LogoutUseCase
-import com.nicolasrodf.habitsapp.onboarding.domain.usecase.HasSeenOnboardingUseCase
+import com.nicolasrf.onboarding_domain.usecase.HasSeenOnboardingUseCase
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject

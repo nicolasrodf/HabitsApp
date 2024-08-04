@@ -1,11 +1,11 @@
-package com.nicolasrodf.habitsapp.onboarding.di
+package com.nicolasrf.onboarding_data.di
 
 import android.content.Context
 import android.content.SharedPreferences
-import com.nicolasrodf.habitsapp.onboarding.data.OnboardingRepositoryImpl
-import com.nicolasrodf.habitsapp.onboarding.domain.repository.OnboardingRepository
-import com.nicolasrodf.habitsapp.onboarding.domain.usecase.CompleteOnboardingUseCase
-import com.nicolasrodf.habitsapp.onboarding.domain.usecase.HasSeenOnboardingUseCase
+import com.nicolasrf.onboarding_data.repository.OnboardingRepositoryImpl
+import com.nicolasrf.onboarding_domain.repository.OnboardingRepository
+import com.nicolasrf.onboarding_domain.usecase.CompleteOnboardingUseCase
+import com.nicolasrf.onboarding_domain.usecase.HasSeenOnboardingUseCase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

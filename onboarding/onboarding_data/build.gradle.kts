@@ -1,6 +1,7 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.jetbrains.kotlin.android)
+    kotlin ("kapt")
 }
 
 android {
@@ -33,6 +34,12 @@ android {
 }
 
 dependencies {
+
+    implementation(project(":onboarding:onboarding_domain"))
+
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.compiler)
+    kapt(libs.androidx.hilt.compiler)
 
     implementation(libs.core.ktx)
     implementation(libs.androidx.appcompat)

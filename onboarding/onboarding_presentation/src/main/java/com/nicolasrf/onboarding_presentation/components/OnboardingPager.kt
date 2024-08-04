@@ -1,4 +1,4 @@
-package com.nicolasrodf.habitsapp.onboarding
+package com.nicolasrf.onboarding_presentation.components
 
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
@@ -35,7 +35,7 @@ import com.google.accompanist.pager.HorizontalPagerIndicator
 import com.google.accompanist.pager.rememberPagerState
 import com.nicolasrf.core_presentation.HabitButton
 import com.nicolasrf.core_presentation.HabitTitle
-import com.nicolasrodf.habitsapp.onboarding.presentation.OnboardingPagerInformation
+import com.nicolasrf.onboarding_presentation.OnboardingPagerInformation
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalPagerApi::class)

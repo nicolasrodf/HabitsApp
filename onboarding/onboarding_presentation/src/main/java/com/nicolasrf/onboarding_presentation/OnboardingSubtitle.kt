@@ -1,4 +1,4 @@
-package com.nicolasrodf.habitsapp.onboarding.presentation
+package com.nicolasrf.onboarding_presentation
 
 import androidx.compose.ui.graphics.Color
 

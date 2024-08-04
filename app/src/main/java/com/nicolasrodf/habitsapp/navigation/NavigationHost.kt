@@ -10,8 +10,7 @@ import com.nicolasrodf.habitsapp.authentication.presentation.login.LoginScreen
 import com.nicolasrodf.habitsapp.authentication.presentation.signup.SignupScreen
 import com.nicolasrodf.habitsapp.home.presentation.detail.DetailScreen
 import com.nicolasrodf.habitsapp.home.presentation.home.HomeScreen
-import com.nicolasrodf.habitsapp.onboarding.OnboardingScreen
-import com.nicolasrf.settings_presentation.SettingsScreen
+import com.nicolasrf.onboarding_presentation.components.OnboardingScreen
 
 @Composable
 fun NavigationHost(
@@ -21,7 +20,7 @@ fun NavigationHost(
 ) {
     NavHost(navController = navHostController, startDestination = startDestination.route){
         composable(NavigationRoute.Onboarding.route) {
-            OnboardingScreen(
+            com.nicolasrf.onboarding_presentation.components.OnboardingScreen(
                 onFinish = {
                     navHostController.popBackStack() //TODO.Fixea el back del Login
                     navHostController.navigate(NavigationRoute.Login.route)
