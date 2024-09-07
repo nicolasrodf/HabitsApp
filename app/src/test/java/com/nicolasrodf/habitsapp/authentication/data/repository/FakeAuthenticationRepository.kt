@@ -1,8 +1,9 @@
 package com.nicolasrodf.habitsapp.authentication.data.repository
 
-import com.nicolasrodf.habitsapp.authentication.domain.repository.AuthenticationRepository
+import com.nicolasrf.authentication_domain.repository.AuthenticationRepository
 
-class FakeAuthenticationRepository : AuthenticationRepository {
+class FakeAuthenticationRepository :
+    com.nicolasrf.authentication_domain.repository.AuthenticationRepository {
     var fakeError = false
     val fakeErrorMessage = "There was a server error!"
     override suspend fun login(email: String, password: String): Result<Unit> {

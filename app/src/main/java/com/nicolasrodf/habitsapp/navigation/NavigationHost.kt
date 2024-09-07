@@ -6,8 +6,8 @@ import androidx.navigation.NavType
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
-import com.nicolasrodf.habitsapp.authentication.presentation.login.LoginScreen
-import com.nicolasrodf.habitsapp.authentication.presentation.signup.SignupScreen
+import com.nicolasrf.authentication_presentation.login.LoginScreen
+import com.nicolasrf.authentication_presentation.signup.SignupScreen
 import com.nicolasrodf.habitsapp.home.presentation.detail.DetailScreen
 import com.nicolasrodf.habitsapp.home.presentation.home.HomeScreen
 import com.nicolasrf.onboarding_presentation.components.OnboardingScreen
@@ -28,7 +28,7 @@ fun NavigationHost(
             )
         }
         composable(NavigationRoute.Login.route) {
-            LoginScreen(onLogin = {
+            com.nicolasrf.authentication_presentation.login.LoginScreen(onLogin = {
                 navHostController.popBackStack() //TODO.Fixea el back del Login
                 navHostController.navigate(NavigationRoute.Home.route)
             }, onSignUp = {
@@ -37,7 +37,7 @@ fun NavigationHost(
         }
 
         composable(NavigationRoute.Signup.route) {
-            SignupScreen(onSignIn = {
+            com.nicolasrf.authentication_presentation.signup.SignupScreen(onSignIn = {
                 navHostController.navigate(NavigationRoute.Home.route) {
                     popUpTo(navHostController.graph.id) {
                         inclusive = true

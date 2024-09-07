@@ -5,7 +5,7 @@ import com.nicolasrf.onboarding_domain.repository.OnboardingRepository
 
 class OnboardingRepositoryImpl(
     private val sharedPreferences: SharedPreferences
-) : com.nicolasrf.onboarding_domain.repository.OnboardingRepository {
+) : OnboardingRepository {
 
     companion object {
         private const val HAS_SEEN_ONBOARDING = "has_seen_onboarding"

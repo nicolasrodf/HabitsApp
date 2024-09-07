@@ -61,6 +61,9 @@ dependencies {
     implementation(project(":onboarding:onboarding_presentation"))
     implementation(project(":onboarding:onboarding_data"))
     implementation(project(":onboarding:onboarding_domain"))
+    implementation(project(":authentication:authentication_presentation"))
+    implementation(project(":authentication:authentication_data"))
+    implementation(project(":authentication:authentication_domain"))
 
 
     //Get day of week api 25 or lower
