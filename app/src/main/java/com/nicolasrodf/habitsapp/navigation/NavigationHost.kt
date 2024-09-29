@@ -8,8 +8,8 @@ import androidx.navigation.compose.composable
 import androidx.navigation.navArgument
 import com.nicolasrf.authentication_presentation.login.LoginScreen
 import com.nicolasrf.authentication_presentation.signup.SignupScreen
-import com.nicolasrodf.habitsapp.home.presentation.detail.DetailScreen
-import com.nicolasrodf.habitsapp.home.presentation.home.HomeScreen
+import com.nicolasrf.home_presentation.detail.DetailScreen
+import com.nicolasrf.home_presentation.home.HomeScreen
 import com.nicolasrf.onboarding_presentation.components.OnboardingScreen
 
 @Composable
@@ -49,7 +49,7 @@ fun NavigationHost(
         }
 
         composable(NavigationRoute.Home.route) {
-            HomeScreen(onNewHabit = {
+            com.nicolasrf.home_presentation.home.HomeScreen(onNewHabit = {
                 navHostController.navigate(NavigationRoute.Detail.route)
             }, onSettings = {
                 navHostController.navigate(NavigationRoute.Settings.route)
@@ -68,7 +68,7 @@ fun NavigationHost(
                 }
             )
         ) {
-            DetailScreen(onBack = {
+            com.nicolasrf.home_presentation.detail.DetailScreen(onBack = {
                 navHostController.popBackStack()
             }, onSave = {
                 navHostController.popBackStack()

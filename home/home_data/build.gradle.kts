@@ -1,6 +1,8 @@
 plugins {
     alias(libs.plugins.android.library)
     alias(libs.plugins.jetbrains.kotlin.android)
+    id("com.google.dagger.hilt.android")
+    kotlin ("kapt")
 }
 
 android {
@@ -26,6 +28,7 @@ android {
     compileOptions {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
+        isCoreLibraryDesugaringEnabled = true
     }
     kotlinOptions {
         jvmTarget = "17"
@@ -33,6 +36,29 @@ android {
 }
 
 dependencies {
+
+    implementation(project(":home:home_domain"))
+
+    implementation(libs.hilt.android)
+    kapt(libs.hilt.compiler)
+    kapt(libs.androidx.hilt.compiler)
+
+    //Get day of week api 25 or lower
+    coreLibraryDesugaring(libs.desugar.jdk.libs)
+
+    // Room
+    implementation(libs.androidx.room.ktx)
+    kapt(libs.androidx.room.compiler)
+    implementation(libs.androidx.room.runtime)
+
+    // Retrofit
+    implementation(libs.retrofit)
+    implementation(libs.converter.moshi)
+    implementation(libs.logging.interceptor)
+
+    // WorkManager
+    implementation(libs.androidx.work.runtime.ktx)
+    implementation(libs.androidx.hilt.work)
 
     implementation(libs.core.ktx)
     implementation(libs.androidx.appcompat)

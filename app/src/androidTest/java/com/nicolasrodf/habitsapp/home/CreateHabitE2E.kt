@@ -17,17 +17,17 @@ import androidx.work.testing.SynchronousExecutor
 import androidx.work.testing.WorkManagerTestInitHelper
 import com.nicolasrodf.habitsapp.MainActivity
 import com.nicolasrodf.habitsapp.home.data.repository.FakeHomeRepository
-import com.nicolasrodf.habitsapp.home.domain.detail.usecase.DetailUseCases
-import com.nicolasrodf.habitsapp.home.domain.detail.usecase.GetHabitByIdUseCase
-import com.nicolasrodf.habitsapp.home.domain.detail.usecase.InsertHabitUseCase
-import com.nicolasrodf.habitsapp.home.domain.home.usecase.CompleteHabitUseCase
-import com.nicolasrodf.habitsapp.home.domain.home.usecase.GetHabitsForDateUseCase
-import com.nicolasrodf.habitsapp.home.domain.home.usecase.HomeUseCases
-import com.nicolasrodf.habitsapp.home.domain.home.usecase.SyncHabitUseCase
-import com.nicolasrodf.habitsapp.home.presentation.detail.DetailScreen
-import com.nicolasrodf.habitsapp.home.presentation.detail.DetailViewModel
-import com.nicolasrodf.habitsapp.home.presentation.home.HomeScreen
-import com.nicolasrodf.habitsapp.home.presentation.home.HomeViewModel
+import com.nicolasrf.home_domain.detail.usecase.DetailUseCases
+import com.nicolasrf.home_domain.detail.usecase.GetHabitByIdUseCase
+import com.nicolasrf.home_domain.detail.usecase.InsertHabitUseCase
+import com.nicolasrf.home_domain.home.usecase.CompleteHabitUseCase
+import com.nicolasrf.home_domain.home.usecase.GetHabitsForDateUseCase
+import com.nicolasrf.home_domain.home.usecase.HomeUseCases
+import com.nicolasrf.home_domain.home.usecase.SyncHabitUseCase
+import com.nicolasrf.home_presentation.detail.DetailScreen
+import com.nicolasrf.home_presentation.detail.DetailViewModel
+import com.nicolasrf.home_presentation.home.HomeScreen
+import com.nicolasrf.home_presentation.home.HomeViewModel
 import com.nicolasrodf.habitsapp.navigation.NavigationRoute
 import dagger.hilt.android.testing.HiltAndroidRule
 import dagger.hilt.android.testing.HiltAndroidTest
@@ -46,8 +46,8 @@ class CreateHabitE2E {
     val composeRule = createAndroidComposeRule<MainActivity>()
 
     private lateinit var homeRepository: FakeHomeRepository
-    private lateinit var homeViewModel: HomeViewModel
-    private lateinit var detailViewModel: DetailViewModel
+    private lateinit var homeViewModel: com.nicolasrf.home_presentation.home.HomeViewModel
+    private lateinit var detailViewModel: com.nicolasrf.home_presentation.detail.DetailViewModel
     private lateinit var navController: NavHostController
 
     @Before
@@ -58,24 +58,37 @@ class CreateHabitE2E {
             .build()
         WorkManagerTestInitHelper.initializeTestWorkManager(context, config)
         homeRepository = FakeHomeRepository()
-        val usecases = HomeUseCases(
-            completeHabitUseCase = CompleteHabitUseCase(homeRepository),
-            getHabitsForDateUseCase = GetHabitsForDateUseCase(homeRepository),
-            syncHabitUseCase = SyncHabitUseCase(homeRepository)
+        val usecases = com.nicolasrf.home_domain.home.usecase.HomeUseCases(
+            completeHabitUseCase = com.nicolasrf.home_domain.home.usecase.CompleteHabitUseCase(
+                homeRepository
+            ),
+            getHabitsForDateUseCase = com.nicolasrf.home_domain.home.usecase.GetHabitsForDateUseCase(
+                homeRepository
+            ),
+            syncHabitUseCase = com.nicolasrf.home_domain.home.usecase.SyncHabitUseCase(
+                homeRepository
+            )
         )
-        homeViewModel = HomeViewModel(usecases)
+        homeViewModel = com.nicolasrf.home_presentation.home.HomeViewModel(usecases)
 
-        val detailUseCase = DetailUseCases(
-            getHabitByIdUseCase = GetHabitByIdUseCase(homeRepository),
-            insertHabitUseCase = InsertHabitUseCase(homeRepository)
+        val detailUseCase = com.nicolasrf.home_domain.detail.usecase.DetailUseCases(
+            getHabitByIdUseCase = com.nicolasrf.home_domain.detail.usecase.GetHabitByIdUseCase(
+                homeRepository
+            ),
+            insertHabitUseCase = com.nicolasrf.home_domain.detail.usecase.InsertHabitUseCase(
+                homeRepository
+            )
         )
-        detailViewModel = DetailViewModel(SavedStateHandle(), detailUseCase)
+        detailViewModel = com.nicolasrf.home_presentation.detail.DetailViewModel(
+            SavedStateHandle(),
+            detailUseCase
+        )
 
         composeRule.activity.setContent {
             navController = rememberNavController()
             NavHost(navController = navController, startDestination = NavigationRoute.Home.route) {
                 composable(NavigationRoute.Home.route) {
-                    HomeScreen(
+                    com.nicolasrf.home_presentation.home.HomeScreen(
                         onNewHabit = {
                             navController.navigate(NavigationRoute.Detail.route)
                         },
@@ -99,7 +112,7 @@ class CreateHabitE2E {
                         }
                     )
                 ) {
-                    DetailScreen(
+                    com.nicolasrf.home_presentation.detail.DetailScreen(
                         onBack = {
                             navController.popBackStack()
                         },
