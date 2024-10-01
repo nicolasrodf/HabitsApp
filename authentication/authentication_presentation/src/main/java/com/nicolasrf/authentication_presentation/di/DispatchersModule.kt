@@ -1,4 +1,4 @@
-package com.nicolasrf.core_data.di
+package com.nicolasrf.authentication_presentation.di
 
 import dagger.Module
 import dagger.Provides

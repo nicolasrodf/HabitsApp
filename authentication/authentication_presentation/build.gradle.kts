@@ -43,8 +43,6 @@ dependencies {
 
     implementation(project(":authentication:authentication_domain"))
     implementation(project(":core:core_presentation"))
-    implementation(project(":core:core_data")) // presentation no deberia implementar data. solo se hizo para obtener el Dispatcher module
-    //de otra forma, habria que extraer el dispatcher module hacia authentication_presentation
 
     implementation(libs.hilt.android)
     kapt(libs.hilt.compiler)
