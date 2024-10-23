@@ -20,7 +20,7 @@ fun NavigationHost(
 ) {
     NavHost(navController = navHostController, startDestination = startDestination.route){
         composable(NavigationRoute.Onboarding.route) {
-            com.nicolasrf.onboarding_presentation.components.OnboardingScreen(
+            OnboardingScreen(
                 onFinish = {
                     navHostController.popBackStack() //TODO.Fixea el back del Login
                     navHostController.navigate(NavigationRoute.Login.route)
@@ -28,7 +28,7 @@ fun NavigationHost(
             )
         }
         composable(NavigationRoute.Login.route) {
-            com.nicolasrf.authentication_presentation.login.LoginScreen(onLogin = {
+            LoginScreen(onLogin = {
                 navHostController.popBackStack() //TODO.Fixea el back del Login
                 navHostController.navigate(NavigationRoute.Home.route)
             }, onSignUp = {
@@ -37,7 +37,7 @@ fun NavigationHost(
         }
 
         composable(NavigationRoute.Signup.route) {
-            com.nicolasrf.authentication_presentation.signup.SignupScreen(onSignIn = {
+            SignupScreen(onSignIn = {
                 navHostController.navigate(NavigationRoute.Home.route) {
                     popUpTo(navHostController.graph.id) {
                         inclusive = true
@@ -49,7 +49,7 @@ fun NavigationHost(
         }
 
         composable(NavigationRoute.Home.route) {
-            com.nicolasrf.home_presentation.home.HomeScreen(onNewHabit = {
+            HomeScreen(onNewHabit = {
                 navHostController.navigate(NavigationRoute.Detail.route)
             }, onSettings = {
                 navHostController.navigate(NavigationRoute.Settings.route)
@@ -68,7 +68,7 @@ fun NavigationHost(
                 }
             )
         ) {
-            com.nicolasrf.home_presentation.detail.DetailScreen(onBack = {
+            DetailScreen(onBack = {
                 navHostController.popBackStack()
             }, onSave = {
                 navHostController.popBackStack()

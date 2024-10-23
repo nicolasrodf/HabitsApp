@@ -31,5 +31,6 @@ class FakeAuthenticationRepository :
     }
 
     override suspend fun logout() {
+        //
     }
 }
