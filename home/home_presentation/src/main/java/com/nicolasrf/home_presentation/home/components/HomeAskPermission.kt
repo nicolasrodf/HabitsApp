@@ -3,10 +3,12 @@ package com.nicolasrf.home_presentation.home.components
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.material3.AlertDialog
 import androidx.compose.material3.Text
-import androidx.compose.runtime.*
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
-import com.google.accompanist.permissions.*
+import com.google.accompanist.permissions.ExperimentalPermissionsApi
+import com.google.accompanist.permissions.rememberPermissionState
+import com.google.accompanist.permissions.shouldShowRationale
 import com.nicolasrf.core_presentation.HabitButton
 
 @OptIn(ExperimentalPermissionsApi::class)

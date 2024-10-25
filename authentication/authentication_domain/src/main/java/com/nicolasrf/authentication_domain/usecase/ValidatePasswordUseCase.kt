@@ -2,22 +2,16 @@ package com.nicolasrf.authentication_domain.usecase
 
 class ValidatePasswordUseCase {
     operator fun invoke(password: String): PasswordResult {
-        if (password.length < 8) {
-            return PasswordResult.INVALID_LENGTH
+        return when {
+            password.length < MAX_PASSWORD_LENGTH -> PasswordResult.INVALID_LENGTH
+            !password.any { it.isLowerCase() } -> PasswordResult.INVALID_LOWERCASE
+            !password.any { it.isUpperCase() } -> PasswordResult.INVALID_UPPERCASE
+            !password.any { it.isDigit() } -> PasswordResult.INVALID_DIGITS
+            else -> PasswordResult.VALID
         }
-
-        if (!password.any { it.isLowerCase() }) {
-            return PasswordResult.INVALID_LOWERCASE
-        }
-
-        if (!password.any { it.isUpperCase() }) {
-            return PasswordResult.INVALID_UPPERCASE
-        }
-
-        if (!password.any { it.isDigit() }) {
-            return PasswordResult.INVALID_DIGITS
-        }
-        return PasswordResult.VALID
+    }
+    companion object {
+        const val MAX_PASSWORD_LENGTH = 8
     }
 }
 

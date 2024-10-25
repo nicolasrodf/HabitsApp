@@ -18,6 +18,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.nicolasrf.core_presentation.HabitCheckbox
+import com.nicolasrf.home_presentation.utils.Constants.Companion.DAY_LETTERS_QUANTITY
 import java.time.DayOfWeek
 
 @Composable
@@ -34,7 +35,7 @@ fun DetailFrequencyDate(
         horizontalAlignment = Alignment.CenterHorizontally
     ) {
         Text(
-            text = date.name.take(3),
+            text = date.name.take(DAY_LETTERS_QUANTITY),
             color = MaterialTheme.colorScheme.tertiary.copy(
                 alpha = 0.5f
             ),

@@ -7,7 +7,7 @@ import androidx.room.util.splitToIntList
 import java.lang.NumberFormatException
 
 @ProvidedTypeConverter
-class HomeTypeConverter() {
+class HomeTypeConverter {
     @TypeConverter
     fun fromFrequency(days: List<Int>): String {
         return joinIntoString(days) ?: ""

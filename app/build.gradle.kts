@@ -57,7 +57,6 @@ android {
 dependencies {
 
     implementation(project(":core:core_presentation"))
-    implementation(project(":core:core_data"))
     implementation(project(":settings:settings_presentation"))
     implementation(project(":onboarding:onboarding_presentation"))
     implementation(project(":onboarding:onboarding_data"))

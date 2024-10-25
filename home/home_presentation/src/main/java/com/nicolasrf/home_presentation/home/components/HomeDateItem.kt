@@ -19,6 +19,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.nicolasrf.home_presentation.utils.Constants.DAY_LETTERS_QUANTITY
 import java.time.ZonedDateTime
 
 @Composable
@@ -47,7 +48,7 @@ fun HomeDateItem(
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Text(
-                    text = date.dayOfWeek.name.take(3),
+                    text = date.dayOfWeek.name.take(DAY_LETTERS_QUANTITY),
                     fontWeight = FontWeight.Bold,
                     color = MaterialTheme.colorScheme.tertiary.copy(
                         alpha = 0.5f
