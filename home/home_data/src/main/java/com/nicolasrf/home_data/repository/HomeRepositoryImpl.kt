@@ -39,7 +39,7 @@ class HomeRepositoryImpl(
 
     override fun getAllHabitsForSelectedDate(date: ZonedDateTime): Flow<List<Habit>> {
         val localFlow = dao.getAllHabitsForSelectedDate(date.toStartOfDateTimestamp())
-            .map { it.map { it.toDomain() } }
+            .map { it.map { habitEntity ->  habitEntity.toDomain() } }
         val apiFlow = getHabitsFromApi()
 
         //'combine' suma 2 flows y emite los cambios de ambos combinados

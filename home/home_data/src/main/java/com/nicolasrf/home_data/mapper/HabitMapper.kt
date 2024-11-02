@@ -10,8 +10,8 @@ import com.nicolasrf.home_data.remote.dto.HabitResponse
 import com.nicolasrf.home_domain.models.Habit
 import java.time.DayOfWeek
 
-fun HabitEntity.toDomain(): com.nicolasrf.home_domain.models.Habit {
-    return com.nicolasrf.home_domain.models.Habit(
+fun HabitEntity.toDomain(): Habit {
+    return Habit(
         id = this.id,
         name = this.name,
         frequency = this.frequency.map { DayOfWeek.of(it) },
@@ -21,7 +21,7 @@ fun HabitEntity.toDomain(): com.nicolasrf.home_domain.models.Habit {
     )
 }
 
-fun com.nicolasrf.home_domain.models.Habit.toEntity(): HabitEntity {
+fun Habit.toEntity(): HabitEntity {
     return HabitEntity(
         id = this.id,
         name = this.name,
@@ -32,15 +32,15 @@ fun com.nicolasrf.home_domain.models.Habit.toEntity(): HabitEntity {
     )
 }
 
-fun HabitResponse.toDomain(): List<com.nicolasrf.home_domain.models.Habit> {
+fun HabitResponse.toDomain(): List<Habit> {
     return this.entries.map {
         val id = it.key
         val dto = it.value
-        com.nicolasrf.home_domain.models.Habit(
+        Habit(
             id = id,
             name = dto.name,
-            frequency = dto.frequency.map { DayOfWeek.of(it) },
-            completedDates = dto.completedDates?.map { it.toZonedDateTime().toLocalDate() }
+            frequency = dto.frequency.map { dayOfWeek -> DayOfWeek.of(dayOfWeek) },
+            completedDates = dto.completedDates?.map { dateLong -> dateLong.toZonedDateTime().toLocalDate() }
                 ?: emptyList(),
             reminder = dto.reminder.toZonedDateTime().toLocalTime(),
             startDate = dto.startDate.toZonedDateTime()
@@ -48,7 +48,7 @@ fun HabitResponse.toDomain(): List<com.nicolasrf.home_domain.models.Habit> {
     }
 }
 
-fun com.nicolasrf.home_domain.models.Habit.toDto(): HabitResponse {
+fun Habit.toDto(): HabitResponse {
     val dto = HabitDto(
         name = this.name,
         frequency = this.frequency.map { it.value },
@@ -59,6 +59,6 @@ fun com.nicolasrf.home_domain.models.Habit.toDto(): HabitResponse {
     return mapOf(id to dto)
 }
 
-fun com.nicolasrf.home_domain.models.Habit.toSyncEntity(): HabitSyncEntity {
+fun Habit.toSyncEntity(): HabitSyncEntity {
     return HabitSyncEntity(id)
 }

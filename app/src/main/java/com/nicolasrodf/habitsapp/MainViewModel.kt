@@ -14,9 +14,9 @@ import javax.inject.Inject
 
 @HiltViewModel
 class MainViewModel @Inject constructor(
-    private val hasSeenOnboardingUseCase: HasSeenOnboardingUseCase,
-    private val getUserIdUseCase: com.nicolasrf.authentication_domain.usecase.GetUserIdUseCase,
-    private val logoutUseCase: com.nicolasrf.authentication_domain.usecase.LogoutUseCase
+    hasSeenOnboardingUseCase: HasSeenOnboardingUseCase,
+    getUserIdUseCase: GetUserIdUseCase,
+    private val logoutUseCase: LogoutUseCase
 ) : ViewModel() {
     var hasSeenOnboarding by mutableStateOf(hasSeenOnboardingUseCase())
         private set

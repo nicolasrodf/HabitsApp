@@ -15,7 +15,7 @@ import javax.inject.Inject
 
 @HiltViewModel
 class DetailViewModel @Inject constructor(
-    private val savedStateHandle: SavedStateHandle,
+    savedStateHandle: SavedStateHandle,
     private val detailUseCases: DetailUseCases
 ) : ViewModel() {
     var state by mutableStateOf(DetailState())

@@ -108,18 +108,18 @@ fun HomeScreen(
                     HomeDateSelector(
                         selectedDate = state.selectedDate,
                         mainDate = state.currentDate,
-                        onDateClick = {
-                            viewModel.onEvent(HomeEvent.ChangeDate(it))
+                        onDateClick = { zonedDateTime ->
+                            viewModel.onEvent(HomeEvent.ChangeDate(zonedDateTime))
                         }
                     )
                 }
             }
-            items(state.habits) {
+            items(state.habits) { habit ->
                 HomeHabit(
-                    habit = it,
+                    habit = habit,
                     selectedDate = state.selectedDate.toLocalDate(),
-                    onCheckedChange = { viewModel.onEvent(HomeEvent.CompleteHabit(it))},
-                    onHabitClick = { onEditHabit(it.id) }
+                    onCheckedChange = { viewModel.onEvent(HomeEvent.CompleteHabit(habit))},
+                    onHabitClick = { onEditHabit(habit.id) }
                 )
             }
         }

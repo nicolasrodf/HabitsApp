@@ -13,7 +13,7 @@ import javax.inject.Inject
 @AndroidEntryPoint
 class BootReceiver : BroadcastReceiver() {
     @Inject
-    lateinit var alarmHandler: com.nicolasrf.home_domain.alarm.AlarmHandler
+    lateinit var alarmHandler: AlarmHandler
 
     @Inject
     lateinit var homeDao: HomeDao

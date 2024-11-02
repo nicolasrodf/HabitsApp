@@ -12,7 +12,7 @@ class GetHabitsForDateUseCase(
 ) {
     operator fun invoke(date: ZonedDateTime): Flow<List<Habit>> {
         return repository.getAllHabitsForSelectedDate(date).map {
-            it.filter { it.frequency.contains(date.dayOfWeek) }
+            it.filter { habit -> habit.frequency.contains(date.dayOfWeek) }
         }.distinctUntilChanged()
     }
 }

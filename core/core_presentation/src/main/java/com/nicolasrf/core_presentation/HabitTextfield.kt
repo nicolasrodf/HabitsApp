@@ -120,7 +120,7 @@ fun HabitPasswordTextfield(
     leadingIcon: ImageVector? = Icons.Outlined.Lock,
     isEnabled: Boolean = true,
     keyboardOptions: KeyboardOptions = KeyboardOptions(
-        autoCorrect = false,
+        autoCorrectEnabled = false,
         keyboardType = KeyboardType.Password,
         imeAction = ImeAction.Done
     ),
@@ -154,7 +154,7 @@ fun HabitEmailTextfield(
     leadingIcon: ImageVector? = Icons.Outlined.Email,
     isEnabled: Boolean = true,
     keyboardOptions: KeyboardOptions = KeyboardOptions(
-        autoCorrect = false,
+        autoCorrectEnabled = false,
         keyboardType = KeyboardType.Email,
         imeAction = ImeAction.Next
     ),
