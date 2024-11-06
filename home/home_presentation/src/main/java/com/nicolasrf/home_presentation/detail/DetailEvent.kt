@@ -7,5 +7,5 @@ sealed interface DetailEvent {
     data class ReminderChange(val time: LocalTime) : DetailEvent
     data class FrequencyChange(val dayOfWeek: DayOfWeek) : DetailEvent
     data class NameChange(val name: String) : DetailEvent
-    object HabitSave : DetailEvent
+    data object HabitSave : DetailEvent
 }

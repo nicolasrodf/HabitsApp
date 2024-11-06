@@ -45,7 +45,8 @@ class AlarmReceiver : BroadcastReceiver() {
             .setSmallIcon(R.drawable.ic_notification)
             .setAutoCancel(true)
             .build()
-        notificationManager.notify(habit.id.hashCode(), notification) //hashCode del id para que las notificaciones sean unicas y no se pisen una tras otra
+        notificationManager.notify(habit.id.hashCode(), notification)
+        //hashCode del id para que las notificaciones sean unicas y no se pisen una tras otra
     }
 
     private fun createNotificationChannel(context: Context) {

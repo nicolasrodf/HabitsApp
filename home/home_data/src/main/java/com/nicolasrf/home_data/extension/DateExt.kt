@@ -1,5 +1,6 @@
 package com.nicolasrf.home_data.extension
 
+import com.nicolasrf.home_data.utils.Constants.ONE_SECOND_IN_MILLIS
 import java.time.Instant
 import java.time.LocalDate
 import java.time.LocalTime
@@ -8,7 +9,7 @@ import java.time.ZonedDateTime
 import java.time.temporal.ChronoUnit
 
 fun ZonedDateTime.toStartOfDateTimestamp(): Long {
-    return truncatedTo(ChronoUnit.DAYS).toEpochSecond() * 1000
+    return truncatedTo(ChronoUnit.DAYS).toEpochSecond() * ONE_SECOND_IN_MILLIS
 }
 
 fun Long.toZonedDateTime(): ZonedDateTime {

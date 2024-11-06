@@ -1,9 +1,17 @@
 package com.nicolasrf.home_presentation.detail.components
 
 import androidx.compose.foundation.background
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.IntrinsicSize
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxHeight
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Divider
+import androidx.compose.material3.HorizontalDivider
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -27,7 +35,7 @@ fun DetailFrequency(
             .background(Color.White)
     ) {
         Text(text = "Frequency", modifier = Modifier.padding(17.dp), color = MaterialTheme.colorScheme.tertiary)
-        Divider(color = MaterialTheme.colorScheme.background)
+        HorizontalDivider(color = MaterialTheme.colorScheme.background)
         Row(
             modifier = Modifier
                 .fillMaxWidth()
@@ -36,7 +44,7 @@ fun DetailFrequency(
             verticalAlignment = Alignment.CenterVertically,
             horizontalArrangement = Arrangement.SpaceBetween
         ) {
-            val days = DayOfWeek.values()
+            val days = DayOfWeek.entries.toTypedArray()
             days.forEachIndexed { index, dayOfWeek ->
                 DetailFrequencyDate(
                     date = dayOfWeek,
@@ -44,7 +52,7 @@ fun DetailFrequency(
                     onCheckedChange = { onFrequencyChange(dayOfWeek) }
                 )
                 if (index < days.size - 1) {
-                    Divider(
+                    HorizontalDivider(
                         modifier = Modifier
                             .fillMaxHeight()
                             .width(1.dp),

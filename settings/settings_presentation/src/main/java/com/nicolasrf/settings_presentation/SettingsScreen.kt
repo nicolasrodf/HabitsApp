@@ -6,6 +6,8 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.automirrored.filled.ExitToApp
 import androidx.compose.material.icons.filled.ArrowBack
 import androidx.compose.material.icons.filled.ExitToApp
 import androidx.compose.material.icons.filled.Phone
@@ -36,7 +38,7 @@ fun SettingsScreen(
                 Text(text = "Settings")
             }, navigationIcon = {
                     IconButton(onClick = onBack) {
-                        Icon(imageVector = Icons.Default.ArrowBack, contentDescription = "back")
+                        Icon(imageVector = Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "back")
                     }
                 })
         }
@@ -52,7 +54,7 @@ fun SettingsScreen(
                 color = MaterialTheme.colorScheme.tertiary
             )
             SettingsItem(text = "Contact", Icons.Default.Phone, {})
-            SettingsItem(text = "Log out", Icons.Default.ExitToApp, onLogout)
+            SettingsItem(text = "Log out", Icons.AutoMirrored.Filled.ExitToApp, onLogout)
         }
     }
 }

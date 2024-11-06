@@ -5,6 +5,8 @@ import android.app.PendingIntent
 import android.content.Context
 import android.content.Intent
 import com.nicolasrf.home_data.extension.toTimeStamp
+import com.nicolasrf.home_data.utils.Constants.HASHCODE_ID_MULTIPLIER
+import com.nicolasrf.home_domain.models.Habit
 import java.time.DayOfWeek
 import java.time.ZonedDateTime
 
@@ -16,7 +18,7 @@ class AlarmHandlerImpl(
     /*
      * setea la alarma en el dia y hora seleccionada
      */
-    override fun setRecurringAlarm(habit: com.nicolasrf.home_domain.models.Habit) {
+    override fun setRecurringAlarm(habit: Habit) {
         val nextOccurrence = calculateNextOccurrence(habit)
         alarmManager.setExactAndAllowWhileIdle(
             AlarmManager.RTC_WAKEUP,
@@ -25,13 +27,13 @@ class AlarmHandlerImpl(
         )
     }
 
-    private fun createPendingIntent(habit: com.nicolasrf.home_domain.models.Habit, dayOfWeek: DayOfWeek): PendingIntent {
+    private fun createPendingIntent(habit: Habit, dayOfWeek: DayOfWeek): PendingIntent {
         val intent = Intent(context, AlarmReceiver::class.java).apply {
             putExtra(AlarmReceiver.HABIT_ID, habit.id)
         }
         return PendingIntent.getBroadcast(
             context,
-            habit.id.hashCode() * 10 + dayOfWeek.value, //id unico y frecuencia unica
+            habit.id.hashCode() * HASHCODE_ID_MULTIPLIER + dayOfWeek.value, //id unico y frecuencia unica
             intent,
             PendingIntent.FLAG_UPDATE_CURRENT or PendingIntent.FLAG_IMMUTABLE
         )
@@ -41,7 +43,7 @@ class AlarmHandlerImpl(
     * Calcula si la alarma se seteara el dia de hoy o cualquiera de los siguientes dias que este
     * en la frecuencia
     */
-    private fun calculateNextOccurrence(habit: com.nicolasrf.home_domain.models.Habit): ZonedDateTime {
+    private fun calculateNextOccurrence(habit: Habit): ZonedDateTime {
         //Ej frequency L-J-S
         val today = ZonedDateTime.now() //Ej Sabado 11 nov 23:00
         var nextOccurrence = ZonedDateTime.of(today.toLocalDate(), habit.reminder, today.zone) //Ej Sabado 11 nov 16:00
@@ -65,7 +67,7 @@ class AlarmHandlerImpl(
     /*
     * Cancela la siguiente alarma creada para el Habito
     * */
-    override fun cancel(habit: com.nicolasrf.home_domain.models.Habit) {
+    override fun cancel(habit: Habit) {
         val nextOccurrence = calculateNextOccurrence(habit)
         val pending = createPendingIntent(habit, nextOccurrence.dayOfWeek)
         alarmManager.cancel(pending)

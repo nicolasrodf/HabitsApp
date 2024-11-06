@@ -10,13 +10,14 @@ import com.nicolasrf.home_data.mapper.toDomain
 import com.nicolasrf.home_data.mapper.toDto
 import com.nicolasrf.home_data.remote.HomeApi
 import com.nicolasrf.home_data.remote.util.resultOf
+import com.nicolasrf.home_data.utils.Constants.MAX_WORKER_SYNCS_ATTEMPTS
 import dagger.assisted.Assisted
 import dagger.assisted.AssistedInject
 import kotlinx.coroutines.async
 import kotlinx.coroutines.awaitAll
-import kotlinx.coroutines.launch
 import kotlinx.coroutines.supervisorScope
 
+@Suppress("SwallowedException")
 @HiltWorker
 class HabitSyncWorker @AssistedInject constructor(
     @Assisted val context: Context,
@@ -33,7 +34,7 @@ class HabitSyncWorker @AssistedInject constructor(
     * Ojo: este Result es de Workmanager
     * */
     override suspend fun doWork(): Result {
-        if (runAttemptCount >= 3) {
+        if (runAttemptCount >= MAX_WORKER_SYNCS_ATTEMPTS) {
             return Result.failure()
         }
 

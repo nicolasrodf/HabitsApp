@@ -1,13 +1,24 @@
 package com.nicolasrf.home_presentation.detail
 
-import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.text.KeyboardActions
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.ArrowBack
+import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Check
-import androidx.compose.material3.*
+import androidx.compose.material3.CenterAlignedTopAppBar
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.FloatingActionButton
+import androidx.compose.material3.Icon
+import androidx.compose.material3.IconButton
+import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
@@ -58,7 +69,7 @@ fun DetailScreen(
                 Text(text = "New Habit")
             }, navigationIcon = {
                 IconButton(onClick = onBack) {
-                    Icon(imageVector = Icons.Default.ArrowBack, contentDescription = "back")
+                    Icon(imageVector = Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "back")
                 }
             })
         },
@@ -82,13 +93,13 @@ fun DetailScreen(
         ) {
             HabitTextfield(
                 value = state.habitName,
-                onValueChange = { viewModel.onEvent(DetailEvent.NameChange(it)) },
+                onValueChange = { value -> viewModel.onEvent(DetailEvent.NameChange(value)) },
                 placeholder = "New habit",
                 contentDescription = "Enter habit name",
                 modifier = Modifier.fillMaxWidth(),
                 backgroundColor = Color.White,
                 keyboardOptions = KeyboardOptions(
-                    autoCorrect = false,
+                    autoCorrectEnabled = false,
                     imeAction = ImeAction.Done
                 ),
                 keyboardActions = KeyboardActions {
@@ -97,8 +108,8 @@ fun DetailScreen(
             )
             DetailFrequency(
                 selectedDays = state.frequency,
-                onFrequencyChange = {
-                    viewModel.onEvent(DetailEvent.FrequencyChange(it))
+                onFrequencyChange = { dayOfWeek ->
+                    viewModel.onEvent(DetailEvent.FrequencyChange(dayOfWeek))
                 }
             )
             DetailReminder(reminder = state.reminder, onTimeClick = { clockState.show() })

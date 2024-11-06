@@ -8,7 +8,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
-import androidx.compose.material.icons.filled.KeyboardArrowRight
+import androidx.compose.material.icons.automirrored.filled.KeyboardArrowRight
 import androidx.compose.material3.Icon
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
@@ -21,6 +21,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.nicolasrf.home_presentation.utils.Constants.TEN_HOUR
+import com.nicolasrf.home_presentation.utils.Constants.TEN_MINUTES
 import java.time.LocalTime
 
 @Composable
@@ -54,7 +56,7 @@ fun DetailReminder(
                 fontWeight = FontWeight.Bold,
                 fontSize = 16.sp
             )
-            Icon(imageVector = Icons.Default.KeyboardArrowRight, contentDescription = null)
+            Icon(imageVector = Icons.AutoMirrored.Filled.KeyboardArrowRight, contentDescription = null)
         }
     }
 }
@@ -63,12 +65,12 @@ private fun parseTime(time: LocalTime): String {
     val builder = StringBuilder()
     val hour = time.hour
     val minutes = time.minute
-    if (hour < 10) {
+    if (hour < TEN_HOUR) {
         builder.append("0")
     }
     builder.append(hour)
     builder.append(":")
-    if (minutes < 10) {
+    if (minutes < TEN_MINUTES) {
         builder.append("0")
     }
     builder.append(minutes)

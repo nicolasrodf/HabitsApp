@@ -16,7 +16,6 @@ dependencyResolutionManagement {
 rootProject.name = "Habits App"
 include(":app")
 include(":core")
-include(":core:core_data")
 include(":core:core_presentation")
 include(":home")
 include(":home:home_domain")
