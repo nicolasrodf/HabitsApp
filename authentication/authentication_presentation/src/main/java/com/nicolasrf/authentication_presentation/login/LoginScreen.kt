@@ -19,6 +19,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.nicolasrf.authentication_presentation.R
 import com.nicolasrf.authentication_presentation.login.components.LoginForm
@@ -76,4 +77,12 @@ fun LoginScreen(
             LoginForm(state, viewModel::onEvent, onSignUp)
         }
     }
+}
+
+@Preview
+@Composable
+fun LoginScreenPreview(){
+    LoginScreen(
+        {},{}, hiltViewModel()
+    )
 }

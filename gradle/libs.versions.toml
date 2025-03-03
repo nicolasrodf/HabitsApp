@@ -28,12 +28,13 @@ minSdk = "24"
 compileSdk = "34"
 targetSdk = "34"
 jetbrainsKotlinJvmVersion = "1.8.10"
-agpVersion = "8.7.2"
+agpVersion = "8.8.2"
 kotlinVersion = "1.9.21"
 appcompatVersion = "1.7.0"
 materialVersion = "1.12.0"
 googleServicesVersion = "4.4.2"
 detektVersion = "1.23.7"
+uiToolingVersion = "1.7.5"
 
 [libraries]
 accompanist-pager-indicators = { module = "com.google.accompanist:accompanist-pager-indicators", version.ref = "accompanistVersion" }
@@ -81,6 +82,7 @@ firebase-auth-ktx = { group = "com.google.firebase", name = "firebase-auth-ktx"}
 firebase-analytics-ktx = { group = "com.google.firebase", name = "firebase-analytics-ktx"}
 androidx-appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompatVersion" }
 material = { group = "com.google.android.material", name = "material", version.ref = "materialVersion" }
+ui-tooling = { group = "androidx.compose.ui", name = "ui-tooling", version.ref = "uiToolingVersion" }
 
 [plugins]
 android-application= { id = "com.android.application", version.ref = "agpVersion" }

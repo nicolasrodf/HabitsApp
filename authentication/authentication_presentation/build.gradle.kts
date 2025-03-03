@@ -46,6 +46,7 @@ dependencies {
     implementation(project(":core:core_presentation"))
 
     implementation(libs.hilt.android)
+    debugImplementation(libs.ui.tooling)
     kapt(libs.hilt.compiler)
     implementation(libs.androidx.hilt.navigation.compose)
     kapt(libs.androidx.hilt.compiler)
