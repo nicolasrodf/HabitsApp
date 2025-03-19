@@ -3,6 +3,8 @@ plugins {
     alias(libs.plugins.dagger.hilt.android)
     alias(libs.plugins.google.services)
     alias(libs.plugins.detekt)
+    alias(libs.plugins.compose.compiler)
+    alias(libs.plugins.ksp)
     kotlin ("android")
     kotlin ("kapt")
 }
@@ -98,7 +100,7 @@ dependencies {
 
     // Room
     implementation(libs.androidx.room.ktx)
-    kapt(libs.androidx.room.compiler)
+    ksp(libs.androidx.room.compiler)
     implementation(libs.androidx.room.runtime)
 
     // Retrofit
