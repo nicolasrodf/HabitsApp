@@ -15,14 +15,16 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusDirection
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalFocusManager
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.unit.dp
-import com.nicolasrf.core_presentation.HabitButton
 import com.nicolasrf.authentication_presentation.signup.SignupEvent
 import com.nicolasrf.authentication_presentation.signup.SignupState
+import com.nicolasrf.core_presentation.HabitButton
+import com.nicolasrf.authentication_presentation.R
 
 @Composable
 fun SignupForm(
@@ -58,7 +60,7 @@ fun SignupForm(
         )
         Spacer(modifier = Modifier.height(12.dp))
         HabitButton(
-            text = "Create Account",
+            text = stringResource(id = R.string.create_account),
             modifier = Modifier.fillMaxWidth().padding(horizontal = 20.dp),
             isEnabled = !state.isLoading
         ) {
@@ -67,9 +69,9 @@ fun SignupForm(
         TextButton(onClick = { onEvent(SignupEvent.LogIn) }) {
             Text(
                 text = buildAnnotatedString {
-                    append("Already have an account? ")
+                    append(stringResource(id = R.string.already_have_account))
                     withStyle(SpanStyle(fontWeight = FontWeight.Bold)) {
-                        append("Sign in")
+                        append(stringResource(id = R.string.sign_in))
                     }
                 },
                 color = MaterialTheme.colorScheme.tertiary

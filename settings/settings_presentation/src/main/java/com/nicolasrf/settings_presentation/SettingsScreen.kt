@@ -8,8 +8,6 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.automirrored.filled.ExitToApp
-import androidx.compose.material.icons.filled.ArrowBack
-import androidx.compose.material.icons.filled.ExitToApp
 import androidx.compose.material.icons.filled.Phone
 import androidx.compose.material3.CenterAlignedTopAppBar
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -20,10 +18,12 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.nicolasrf.settings_presentation.components.SettingsItem
+import com.nicolasrf.settings_presentation.R
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -35,10 +35,10 @@ fun SettingsScreen(
         modifier = Modifier.fillMaxSize(),
         topBar = {
             CenterAlignedTopAppBar(title = {
-                Text(text = "Settings")
+                Text(text = stringResource(id = R.string.settings))
             }, navigationIcon = {
                     IconButton(onClick = onBack) {
-                        Icon(imageVector = Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "back")
+                        Icon(imageVector = Icons.AutoMirrored.Filled.ArrowBack, contentDescription = stringResource(id = R.string.back))
                     }
                 })
         }
@@ -48,13 +48,13 @@ fun SettingsScreen(
             verticalArrangement = Arrangement.spacedBy(10.dp)
         ) {
             Text(
-                text = "Support",
+                text = stringResource(id = R.string.support),
                 fontWeight = FontWeight.Medium,
                 fontSize = 16.sp,
                 color = MaterialTheme.colorScheme.tertiary
             )
-            SettingsItem(text = "Contact", Icons.Default.Phone, {})
-            SettingsItem(text = "Log out", Icons.AutoMirrored.Filled.ExitToApp, onLogout)
+            SettingsItem(text = stringResource(id = R.string.contact), Icons.Default.Phone, {})
+            SettingsItem(text = stringResource(id = R.string.log_out), Icons.AutoMirrored.Filled.ExitToApp, onLogout)
         }
     }
 }

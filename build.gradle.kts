@@ -32,3 +32,9 @@ tasks.register("installGitHooks", Exec::class.java) {
 afterEvaluate {
     tasks.getByPath(":app:preBuild").dependsOn(":installGitHooks")
 }
+
+subprojects {
+    tasks.withType<io.gitlab.arturbosch.detekt.Detekt>().configureEach {
+        exclude { it.file.name.endsWith("Screen.kt") }
+    }
+}

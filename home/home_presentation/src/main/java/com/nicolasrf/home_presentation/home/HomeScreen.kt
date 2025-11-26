@@ -27,6 +27,7 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.ui.semantics.semantics
 import androidx.compose.ui.text.font.FontWeight
@@ -48,14 +49,15 @@ fun HomeScreen(
     viewModel: HomeViewModel = hiltViewModel()
 ) {
     val state = viewModel.state
+    val addHabitContentDesc = stringResource(id = R.string.add_new_habit)
     Scaffold(
         modifier = Modifier.fillMaxSize(),
         topBar = {
             CenterAlignedTopAppBar(title = {
-                Text(text = "Home")
+                Text(text = stringResource(id = R.string.home))
             }, navigationIcon = {
                 IconButton(onClick = onSettings) {
-                    Icon(imageVector = Icons.Default.Settings, contentDescription = "settings")
+                    Icon(imageVector = Icons.Default.Settings, contentDescription = stringResource(id = R.string.settings))
                 }
             })
         },
@@ -65,12 +67,12 @@ fun HomeScreen(
                 containerColor = MaterialTheme.colorScheme.primary,
                 shape = CircleShape,
                 modifier = Modifier.semantics {
-                    contentDescription = "Add a new habit"
+                    contentDescription = addHabitContentDesc
                 }
             ) {
                 Icon(
                     imageVector = Icons.Default.Add,
-                    contentDescription = "Create Habit",
+                    contentDescription = stringResource(id = R.string.create_habit),
                     tint = MaterialTheme.colorScheme.tertiary
                 )
             }
@@ -88,8 +90,8 @@ fun HomeScreen(
         ) {
             item {
                 HomeQuote(
-                    quote = "We first make our habits, and then our habits make us.",
-                    author = "Anonymous",
+                    quote = stringResource(id = R.string.quote),
+                    author = stringResource(id = R.string.author),
                     imageId = R.drawable.onboarding1
                 )
             }
@@ -99,7 +101,7 @@ fun HomeScreen(
                     verticalAlignment = Alignment.CenterVertically
                 ) {
                     Text(
-                        text = "Habits".uppercase(),
+                        text = stringResource(id = R.string.habits).uppercase(),
                         fontSize = 14.sp,
                         fontWeight = FontWeight.Bold,
                         color = MaterialTheme.colorScheme.tertiary

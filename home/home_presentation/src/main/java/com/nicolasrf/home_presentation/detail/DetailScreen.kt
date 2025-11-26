@@ -23,6 +23,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.input.ImeAction
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
@@ -33,6 +34,7 @@ import com.maxkeppeler.sheets.clock.models.ClockSelection
 import com.nicolasrf.core_presentation.HabitTextfield
 import com.nicolasrf.home_presentation.detail.components.DetailFrequency
 import com.nicolasrf.home_presentation.detail.components.DetailReminder
+import com.nicolasrf.home_presentation.R
 import java.time.LocalTime
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -66,10 +68,10 @@ fun DetailScreen(
         modifier = Modifier.fillMaxSize(),
         topBar = {
             CenterAlignedTopAppBar(title = {
-                Text(text = "New Habit")
+                Text(text = stringResource(id = R.string.new_habit))
             }, navigationIcon = {
                 IconButton(onClick = onBack) {
-                    Icon(imageVector = Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "back")
+                    Icon(imageVector = Icons.AutoMirrored.Filled.ArrowBack, contentDescription = stringResource(id = R.string.back))
                 }
             })
         },
@@ -81,7 +83,7 @@ fun DetailScreen(
             ) {
                 Icon(
                     imageVector = Icons.Default.Check,
-                    contentDescription = "Create Habit",
+                    contentDescription = stringResource(id = R.string.create_habit),
                     tint = MaterialTheme.colorScheme.tertiary
                 )
             }
@@ -94,8 +96,8 @@ fun DetailScreen(
             HabitTextfield(
                 value = state.habitName,
                 onValueChange = { value -> viewModel.onEvent(DetailEvent.NameChange(value)) },
-                placeholder = "New habit",
-                contentDescription = "Enter habit name",
+                placeholder = stringResource(id = R.string.new_habit_placeholder),
+                contentDescription = stringResource(id = R.string.enter_habit_name),
                 modifier = Modifier.fillMaxWidth(),
                 backgroundColor = Color.White,
                 keyboardOptions = KeyboardOptions(
