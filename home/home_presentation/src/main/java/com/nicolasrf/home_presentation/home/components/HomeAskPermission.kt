@@ -6,10 +6,12 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.stringResource
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import com.google.accompanist.permissions.rememberPermissionState
 import com.google.accompanist.permissions.shouldShowRationale
 import com.nicolasrf.core_presentation.HabitButton
+import com.nicolasrf.home_presentation.R
 
 @OptIn(ExperimentalPermissionsApi::class)
 @Composable
@@ -29,17 +31,17 @@ fun HomeAskPermission(
             modifier = modifier,
             confirmButton = {
                 HabitButton(
-                    text = "Accept",
+                    text = stringResource(id = R.string.accept),
                     modifier = Modifier.fillMaxWidth()
                 ) {
                     permissionState.launchPermissionRequest()
                 }
             },
             title = {
-                Text(text = "Permission Required")
+                Text(text = stringResource(id = R.string.permission_required))
             },
             text = {
-                Text(text = "We need this permission for the app to work correctly")
+                Text(text = stringResource(id = R.string.permission_required_description))
             }
         )
     }

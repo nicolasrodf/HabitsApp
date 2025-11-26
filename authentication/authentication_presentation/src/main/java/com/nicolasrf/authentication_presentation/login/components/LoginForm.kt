@@ -18,6 +18,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusDirection
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalFocusManager
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
@@ -30,6 +31,7 @@ import com.nicolasrf.authentication_presentation.login.LoginState
 import com.nicolasrf.core_presentation.HabitButton
 import com.nicolasrf.core_presentation.HabitEmailTextfield
 import com.nicolasrf.core_presentation.HabitPasswordTextfield
+import com.nicolasrf.authentication_presentation.R
 
 @Composable
 fun LoginForm(
@@ -47,7 +49,7 @@ fun LoginForm(
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
             Text(
-                text = "Log in with Email",
+                text = stringResource(id = R.string.login_with_email),
                 modifier = Modifier.padding(12.dp),
                 style = MaterialTheme.typography.bodyLarge,
                 color = MaterialTheme.colorScheme.tertiary
@@ -80,7 +82,7 @@ fun LoginForm(
                 })
             )
             HabitButton(
-                text = "Login",
+                text = stringResource(id = R.string.login),
                 modifier = Modifier.fillMaxWidth().padding(horizontal = 20.dp),
                 isEnabled = !state.isLoading
             ) {
@@ -88,7 +90,7 @@ fun LoginForm(
             }
             TextButton(onClick = { /*TODO*/ }) {
                 Text(
-                    text = "Forgot Password?",
+                    text = stringResource(id = R.string.forgot_password),
                     color = MaterialTheme.colorScheme.tertiary,
                     textDecoration = TextDecoration.Underline
                 )
@@ -97,9 +99,9 @@ fun LoginForm(
             TextButton(onClick = onSignUp ) {
                 Text(
                     text = buildAnnotatedString {
-                        append("Don’t have an account? ")
+                        append(stringResource(id = R.string.dont_have_account))
                         withStyle(SpanStyle(fontWeight = FontWeight.Bold)) {
-                            append("Sign up")
+                            append(stringResource(id = R.string.signup))
                         }
                     },
                     color = MaterialTheme.colorScheme.tertiary

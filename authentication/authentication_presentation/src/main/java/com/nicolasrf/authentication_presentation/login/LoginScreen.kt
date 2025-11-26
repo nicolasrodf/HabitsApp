@@ -19,6 +19,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.graphicsLayer
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.nicolasrf.authentication_presentation.R
@@ -43,7 +44,7 @@ fun LoginScreen(
     Box(modifier = Modifier.fillMaxSize()) {
         Image(
             painter = painterResource(id = R.drawable.bg_login),
-            contentDescription = "background",
+            contentDescription = stringResource(id = R.string.login_background_image_content_description),
             contentScale = ContentScale.Crop,
             modifier = Modifier
                 .aspectRatio(1f)
@@ -72,7 +73,7 @@ fun LoginScreen(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
-                HabitTitle(title = "Welcome To \n Monumental Habits")
+                HabitTitle(title = stringResource(id = R.string.welcome_title))
             }
             LoginForm(state, viewModel::onEvent, onSignUp)
         }

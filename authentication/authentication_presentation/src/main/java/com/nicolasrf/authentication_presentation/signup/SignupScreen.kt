@@ -12,6 +12,7 @@ import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import com.nicolasrf.authentication_presentation.R
@@ -44,7 +45,7 @@ fun SignupScreen(
         verticalArrangement = Arrangement.SpaceAround
     ) {
         Image(painter = painterResource(id = R.drawable.signup), contentDescription = null)
-        HabitTitle(title = "Create your account", fontSize = 20.sp)
+        HabitTitle(title = stringResource(id = R.string.create_your_account), fontSize = 20.sp)
         SignupForm(state, viewModel::onEvent, modifier = Modifier.fillMaxWidth())
     }
     if (state.isLoading) {

@@ -1,0 +1,17 @@
+<resources>
+    <string name="home">Home</string>
+    <string name="settings">Settings</string>
+    <string name="add_new_habit">Add a new habit</string>
+    <string name="create_habit">Create Habit</string>
+    <string name="quote">We first make our habits, and then our habits make us.</string>
+    <string name="author">Anonymous</string>
+    <string name="habits">Habits</string>
+    <string name="accept">Accept</string>
+    <string name="permission_required">Permission Required</string>
+    <string name="permission_required_description">We need this permission for the app to work correctly</string>
+    <string name="new_habit">New Habit</string>
+    <string name="back">Back</string>
+    <string name="new_habit_placeholder">New habit</string>
+    <string name="enter_habit_name">Enter habit name</string>
+    <string name="reminder">Reminder</string>
+</resources>

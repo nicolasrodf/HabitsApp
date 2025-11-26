@@ -22,6 +22,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
 import androidx.compose.ui.text.font.FontWeight
@@ -36,6 +37,7 @@ import com.google.accompanist.pager.rememberPagerState
 import com.nicolasrf.core_presentation.HabitButton
 import com.nicolasrf.core_presentation.HabitTitle
 import com.nicolasrf.onboarding_presentation.OnboardingPagerInformation
+import com.nicolasrf.onboarding_presentation.R
 import kotlinx.coroutines.launch
 
 @OptIn(ExperimentalPagerApi::class)
@@ -62,7 +64,7 @@ fun OnboardingPager(
                 Spacer(modifier = Modifier.height(32.dp))
                 Image(
                     painter = painterResource(id = information.image),
-                    contentDescription = "onboarding",
+                    contentDescription = stringResource(id = R.string.onboarding_image_content_description),
                     modifier = Modifier.aspectRatio(1f),
                     contentScale = ContentScale.FillHeight
                 )
@@ -90,14 +92,14 @@ fun OnboardingPager(
         ) {
             if (pagerState.currentPage == pages.lastIndex) {
                 HabitButton(
-                    text = "Get Started",
+                    text = stringResource(id = R.string.get_started),
                     modifier = Modifier.fillMaxWidth()
                 ) {
                     onFinish()
                 }
             } else {
                 TextButton(onClick = onFinish) {
-                    Text(text = "Skip", color = MaterialTheme.colorScheme.tertiary)
+                    Text(text = stringResource(id = R.string.skip), color = MaterialTheme.colorScheme.tertiary)
                 }
                 HorizontalPagerIndicator(
                     pagerState = pagerState,
@@ -109,7 +111,7 @@ fun OnboardingPager(
                         pagerState.animateScrollToPage(pagerState.currentPage + 1)
                     }
                 }) {
-                    Text(text = "Next", color = MaterialTheme.colorScheme.tertiary)
+                    Text(text = stringResource(id = R.string.next), color = MaterialTheme.colorScheme.tertiary)
                 }
             }
         }
