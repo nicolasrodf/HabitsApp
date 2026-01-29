@@ -34,6 +34,28 @@ class AuthenticationRepositoryImpl : AuthenticationRepository {
         }
     }
 
+    override suspend fun confirmPasswordReset(oobCode: String, newPassword: String): Result<Unit> {
+        return try {
+            Firebase.auth.confirmPasswordReset(oobCode, newPassword).await()
+            Result.success(Unit)
+        } catch (e: Exception) {
+            Result.failure(e)
+        }
+    }
+
+    override fun isEmailVerified(): Boolean {
+        return Firebase.auth.currentUser?.isEmailVerified ?: false
+    }
+
+    override suspend fun sendEmailVerification(): Result<Unit> {
+        return try {
+            Firebase.auth.currentUser?.sendEmailVerification()?.await()
+            Result.success(Unit)
+        } catch (e: Exception) {
+            Result.failure(e)
+        }
+    }
+
     override fun getUserId(): String? {
         return Firebase.auth.currentUser?.uid
     }
