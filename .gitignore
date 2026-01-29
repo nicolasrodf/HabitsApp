@@ -13,3 +13,24 @@
 .externalNativeBuild
 .cxx
 local.properties
+
+# Android Studio and IDE files
+.idea/
+.idea/tasks.xml
+.idea/gradle.xml
+.idea/shelf/
+.idea/vcs.xml
+.idea/appInsightsSettings.xml
+.idea/deploymentTargetSelector.xml
+.idea/migrations.xml
+.idea/runConfigurations.xml
+.idea/androidTestResultsUserPreferences.xml
+.idea/AndroidProjectSystem.xml
+/Captures/
+*.apk
+*.ap_
+*.dex
+*.class
+/bin/
+/gen/
+/out/
